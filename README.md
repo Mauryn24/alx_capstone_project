@@ -70,6 +70,9 @@
 
 ## Screenshots or Demo
 
+- Flowchart screenshot
+
+<img src="Pictures/flowchart.jpg" alt="flowchart screenshot">
 
 
 <br>
