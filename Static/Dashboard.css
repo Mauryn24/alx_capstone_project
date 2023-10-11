@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    border: 2px solid red;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* The calories displaying part */
+section .calories{
+    border: 2px dotted black;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    margin-bottom: 10px;
+
+}
+
+/* the dumbells workouts section */
+.summary .sum {
+    border: 2px solid yellow;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+/* The total workout part  */
+.total-workout, .calories-burned, .total-time {
+    text-align: center;
+}
+
+/* statatistics */
+.graph {
+    border: 2px solid purple;
+}
+
+/* nav links section */
+.footer {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+}

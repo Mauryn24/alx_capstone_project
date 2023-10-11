@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Pagr</title>
+    <link rel="stylesheet" href="Static/Timeline.css">
+</head>
+<body>
+    <div class="header">
+        <img src="Pictures/work-in-progress.png" alt="Timeline" width="100px">
+        <h1>Timeline</h1>
+    </div>
+    <div class="work-out-container">
+        <!-- This div represents a container for the workout-related content. -->
+        
+        <section id="workout-form">
+            <!-- This section contains a form for users to log their workout details. -->
+    
+            <h2>Log a Workout</h2>
+            <!-- This heading represents the title of the workout form section. -->
+    
+            <form>
+                <!-- This form allows users to input their workout details. -->
+    
+                <label for="exercise">Exercise:</label>
+                <!-- This label is for the "Exercise" input field. -->
+    
+                <input type="text" id="exercise" name="exercise" required>
+                <!-- This input field is for users to specify the exercise they performed. -->
+                <br>
+    
+                <label for="sets">Sets:</label>
+                <!-- This label is for the "Sets" input field. -->
+    
+                <input type="number" id="sets" name="sets" required>
+                <!-- This input field is for users to specify the number of sets they performed. -->
+                <br>
+    
+                <label for="reps">Reps:</label>
+                <!-- This label is for the "Reps" input field. -->
+    
+                <input type="number" id="reps" name="reps" required>
+                <!-- This input field is for users to specify the number of repetitions they performed. -->
+                <br>
+    
+                <label for="duration">Duration (minutes):</label>
+                <!-- This label is for the "Duration" input field. -->
+    
+                <input type="number" id="duration" name="duration" required>
+                <!-- This input field is for users to specify the duration of their workout in minutes. -->
+                <br>
+    
+                <button type="submit">Log Workout</button>
+                <!-- This button allows users to submit their workout details. -->
+    
+            </form>
+        </section>
+    
+        <section id="workout-history">
+            <!-- This section is for displaying the workout history. -->
+    
+            <h2>Workout History</h2>
+            <!-- This heading represents the title of the workout history section. -->
+    
+            <ul id="workout-list">
+                <!-- This unordered list (ul) will display the workout history items. -->
+                <!-- Individual workout items will be added as list items (li) within this ul. -->
+    
+            </ul>
+        </section>
+    </div>
+    
+     <section class="footer">
+            <a href="Dashboard.html" class="nav-link">
+                <img src="Pictures/dashboard.png" alt="Dashboard icon" width="100px">
+            </a>
+            <a href="Timeline.html">
+                <img src="Pictures/timeline.png" alt="Timeline icon" width="100px">
+            </a>
+            <a href="Profile.html">
+                <img src="Pictures/user.png" alt="Profile icon" width="100px">
+            </a>
+        </section>
+        <script src="script.js"></script>
+</body>
+</html>

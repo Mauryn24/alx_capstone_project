@@ -76,6 +76,15 @@
 
 
 <br>
+- Demo Prototype
+<a href="https://www.canva.com/design/DAFw3bcxfcM/hme0ALUtCJEwyhDlPd8-0w/edit?utm_content=DAFw3bcxfcM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" alt="Prototype">
+
+- if the three slides lack, the pictures attached below will give more details
+* <img src="Pictures/Home.jpg" alt="Dashboard Page">
+
+* <img src="Pictures/Goals.jpg" alt="Activity Page">
+
+* <img src="Pictures/Profil.jpg" alt="Profile Page">
 
 ## ROADMAP AND FUTURE ENHANCEMENTS
 

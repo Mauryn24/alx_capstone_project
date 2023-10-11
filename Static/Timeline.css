@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    border: 2px solid red;
+    display: flex;
+}
+
+.work-out-container {
+    border: 2px solid purple;
+    display: flex;
+    flex-direction: column;
+}
+
+#workout-form h2{
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto; 
+}
+
+form button {
+    text-align: center;
+    color: white;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.footer {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+}
