@@ -1,0 +1,60 @@
+/* Base styles for the entire document, including background and fonts */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* Set the background color */
+    font-size: 16px; /* Font size for mobile devices */
+    line-height: 1.5; /* Line height for readability */
+    font-family: Arial, sans-serif; /* Font family for text */
+}
+
+/* Styles for a container that holds form elements */
+.container {
+    max-width: 500px; /* Maximum width of the container */
+    background-color: #3498db; /* Background color for the container */
+    display: flex; /* Use flex layout for centering */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center child elements horizontally */
+    padding: 20px; /* Padding within the container */
+    margin: 0 auto; /* Center the container horizontally */
+    margin-top: 150px; /* Add top margin for spacing */
+}
+
+/* Styles for input fields, including text, email, password, and phone */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%; /* Full width for responsiveness */
+    padding: 12px 20px; /* Padding for input elements */
+    margin: 8px 0; /* Margin between input elements */
+    box-sizing: border-box; /* Include padding and border in element width */
+    border-radius: 5px; /* Rounded corners for input elements */
+}
+
+/* Styles for input placeholders (placeholder text) */
+::placeholder {
+    color: black; /* Text color of placeholders */
+}
+
+/* Styles for buttons */
+button {
+    width: 100%; /* Full width button */
+    background-color: #e91e63; /* Background color for buttons */
+    color: white; /* Text color for buttons */
+    padding: 14px 20px; /* Padding within buttons */
+    margin: 8px 0; /* Margin between buttons */
+    border: none; /* No border for buttons */
+    border-radius: 4px; /* Rounded corners for buttons */
+    cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+/* Styles for error messages displayed as spans */
+span {
+    color: red; /* Text color for error messages */
+    font-size: 12px; /* Font size for error messages */
+    font-weight: bold; /* Bold text for emphasis */
+    position: absolute; /* Absolute positioning to overlay elements */
+    display: inline; /* Display as inline elements */
+    /* Additional positioning properties (e.g., right, bottom) can be added as needed */
+}

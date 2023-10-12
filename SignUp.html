@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="Static/SignUp.css">
+
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="form">
+                <form>
+                    <h1>Welcome to FitPyche</h1>
+
+                    <h2>Let's Do This</h2>
+                    <div class="user">
+                        <label for="username"><b>FullName:</b></label>
+                        <input type="text" id="username" name="username" placeholder="John Doe" onkeyUp="validateName()"
+                            required>
+                        <span id="name-error"></span>
+                    </div>
+
+                    <div class="mail">
+                        <label for="email"><b>Email:</b></label>
+                        <input type="email" id="email" name="email" placeholder="user19@gmail.com"
+                            onKeyUp="validateEmail()" required>
+                        <span id="email-error"></span>
+                    </div>
+
+                    <div>
+                        <label for="phone"><b>Phone Number:</b></label>
+                        <input type="tel" id="phone" name="phone" placeholder="123-456-7890" onkeyup="validatePhone()"
+                            required>
+                        <span id="phone-error"></span>
+                    </div>
+
+                    <div class="pass">
+                        <label for="password"><b>Password:</b></label>
+                        <input type="password" id="password" name="password" placeholder="Password"
+                            onkeyup="validatePassword()" required>
+                        <span id="password-error"></span>
+                    </div>
+
+                    <div class="confirm">
+                        <label for="confirm"><b>Confirm Password:</b></label>
+                        <input type="password" id="confirm" name="confirm" placeholder="Password"
+                            onkeyup="validateConfirm()" required>
+                        <span id="confirm-error"></span>
+                    </div>
+
+                    <button type="submit" onclick="return validateForm()"><b>Sign Up</b></button>
+                    <span id="signup-error"></span>
+                </form>
+            </div>
+            <!-- Add the "Already have an account? Login" link -->
+            <p>Already have an account? <a href="Login.html">Login</a></p>
+
+        </div>
+
+    </main>
+    <script src="js/signUp.js"></script>
+</body>
+
+</html>

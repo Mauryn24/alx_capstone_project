@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    /* Base styles for mobile devices */
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 500px;
+    background-color: #3498db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+::placeholder {
+    color: black;
+}
+
+button {
+    width: 100%;
+    background-color: #e91e63;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+span {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    display: inline;
+    
+}

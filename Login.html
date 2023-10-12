@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Defines compatibility settings for IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configures the viewport for responsive design -->
+    <title>Login form</title> <!-- Page title -->
+    <link rel="stylesheet" href="Static/Login.css"> <!-- Link to the external CSS file for styling -->
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="form">
+                <form>
+                    <h1>Welcome to FitPyche</h1> <!-- Heading: Welcome message -->
+                    <div class="mail">
+                        <label for="email"><b>Email:</b></label> <!-- Label for email input -->
+                        <input type="email" id="email" name="email" placeholder="user19@gmail.com"
+                            onkeyup="validateEmail()" required> <!-- Email input field -->
+                        <span id="email-error"></span> <!-- Span for displaying email validation errors -->
+                    </div>
+                    <div class="pass">
+                        <label for="password"><b>Password:</b></label> <!-- Label for password input -->
+                        <input type="password" id="password" name="password" placeholder="Password"
+                            onkeyup="validatePassword()" required> <!-- Password input field -->
+                        <span id="password-error"></span> <!-- Span for displaying password validation errors -->
+                    </div>
+                    <button type="submit" onclick="return validateForm()"><b>Sign Up</b></button>
+                    <!-- Submit button for the form -->
+                    <span id="signup-error"></span> <!-- Span for displaying form submission errors -->
+                </form>
+            </div>
+            <!-- Add the "Sign Up" link to direct users back to the sign-up page -->
+            <p>Don't have an account? <a href="SignUp.html">Sign Up</a></p> <!-- "Sign Up" link -->
+        </div>
+    </main>
+    <script src="js/login.js"></script> <!-- Link to the external JavaScript file for form validation -->
+</body>
+
+</html>
