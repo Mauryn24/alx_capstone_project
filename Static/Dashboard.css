@@ -1,17 +1,20 @@
+/* Mobile styles (base) */
 body {
     margin: 0;
     padding: 0;
+    background-color: #FFD700 ;
 }
 
 header {
-    border: 2px solid red;
     display: flex;
     padding: 10px;
     margin-bottom: 10px;
 }
+header, h1{
+    color: #4CAF50;
+}
 
-/* The calories displaying part */
-section .calories{
+section .calories {
     border: 2px dotted black;
     text-align: center;
     padding: 20px;
@@ -21,30 +24,59 @@ section .calories{
     height: 150px;
     margin: auto;
     margin-bottom: 10px;
-
+    background-color: #4CAF50;
 }
 
-/* the dumbells workouts section */
+section .calories p {
+    color: whitesmoke;
+}
+
 .summary .sum {
-    border: 2px solid yellow;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 10px;
 }
 
-/* The total workout part  */
 .total-workout, .calories-burned, .total-time {
     text-align: center;
+    color: #4CAF50;
 }
 
-/* statatistics */
-.graph {
-    border: 2px solid purple;
+.statistics h2 {
+    text-align: center;
+    color: darkgray;
 }
 
-/* nav links section */
-.footer {
-    border: 2px solid black;
+.statistics .graph {
+    /* Add styles for graphs if necessary */
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    color: #FF00FF;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer p {
+    text-align: center;
+    color: #4CAF50;
+}
+
+/* Tablet styles */
+@media screen and (min-width: 768px) {
+    /* Add specific styles for tablets here */
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1200px) {
+    /* Add specific styles for desktops here */
+    body {
+        font-size: 28px;
+    }
 }

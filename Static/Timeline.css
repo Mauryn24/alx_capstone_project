@@ -1,18 +1,33 @@
 body {
     margin: 0;
     padding: 0;
+    font-size: 16px;
+    background-color: #FFD700;
 }
 
 .header {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
+}
+header, h1 {
+    color: #4CAF50;
 }
 
 .work-out-container {
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
+
+.work-out-container {
+    background-color: #4CAF50;
+    text-align: center;
+    width: 100%;
+    display: flex;
+}
+
 
 #workout-form h2{
     text-align: center;
@@ -21,8 +36,18 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin: auto; 
+    width: 100%;
+    align-items: center;
+    background-color: beige;
+}
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 2px;
 }
 
 form button {
@@ -30,10 +55,38 @@ form button {
     color: white;
     background-color: black;
     border-radius: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+.work-out-history {
+    display: flex;
+    flex-direction: row;
+}
 .footer {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
     justify-content: space-around;
+    padding: 10px;
+}
+
+.footer p {
+    text-align: center;
+    color: #4CAF50;
+}
+
+/* Tablet styles */
+@media screen and (min-width: 768px) {
+    /* Add specific styles for tablets here */
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1200px) {
+    /* Add specific styles for desktops here */
+    body {
+        font-size: 20px;
+    }
 }
