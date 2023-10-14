@@ -1,0 +1,107 @@
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* General styles for navigation */
+nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  li {
+    margin: 0 5px;
+  }
+
+  li a {
+    color: orange;
+    text-decoration: none; 
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+.container {
+   
+    display: flex;
+    flex-direction: column;
+    background-image: url(/Pictures/gym.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -70px;
+}
+
+.container .body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 100px;
+    padding: 80px;
+    ;
+}
+
+.container .body p span {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+    color: orange;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container .body p .sub {
+    color: red;
+    font-weight: bolder;
+    font-size: larger;
+    font-family: 'dancing script', cursive;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: larger;
+    color: orange;
+    margin-top: 100px;
+    padding: 80px;
+
+}
+
+.photo p {
+    font-size: larger;
+}
+@media screen and (max-width: 600px) {
+    /* body {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+    } */
+   .container .body {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        margin: 0px;
+    }
+    .photo {
+        display: flex;
+        text-align: center;
+        padding: 10px;
+    }
+}
+    

@@ -134,5 +134,3 @@ function validateForm() {
             return false;
         }
     }
-//     return true;
-// }
