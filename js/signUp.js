@@ -17,7 +17,7 @@ function validateName() {
         return false;
     }
     // if input is valid
-    nameError.innerHTML = '<img src="Pictures/valid.png" alt="tick" width="20px">';
+    nameError.innerHTML = '<img src="/Pictures/valid.png" alt="tick" width="20px">';
     return true;
     
 }
@@ -42,7 +42,7 @@ function validateEmail() {
         return false;
     }
     // if input is valid
-    emailError.innerHTML = '<img src="Pictures/valid.png" alt="tick" width="20px">';
+    emailError.innerHTML = '<img src="/Pictures/valid.png" alt="tick" width="20px">';
     return true;
 }
 
@@ -66,7 +66,7 @@ function validatePhone() {
         return false;
     }
     // if input is valid
-    phoneError.innerHTML = '<img src="Pictures/valid.png" alt="tick" width="20px">';
+    phoneError.innerHTML = '<img src="/Pictures/valid.png" alt="tick" width="20px">';
     return true;
 }
 
@@ -90,7 +90,7 @@ function validatePassword() {
         return false;
     }
     // if input is valid
-    passwordError.innerHTML = '<img src="Pictures/valid.png" alt="tick" width="20px">';
+    passwordError.innerHTML = '<img src="/Pictures/valid.png" alt="tick" width="20px">';
     return true;
 }
 
@@ -114,7 +114,7 @@ function validateConfirm() {
         return false;
     }
     // if input is valid
-    confirmError.innerHTML = '<img src="Pictures/valid.png" alt="tick" width="20px">';
+    confirmError.innerHTML = '<img src="/Pictures/valid.png" alt="tick" width="20px">';
     return true;
 }
 

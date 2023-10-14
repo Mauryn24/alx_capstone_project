@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Configures the viewport for responsive design -->
     <title>Login form</title> <!-- Page title -->
-    <link rel="stylesheet" href="Static/Login.css"> <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="/static/login.css"> <!-- Link to the external CSS file for styling -->
 </head>
 
 <body>
@@ -27,16 +27,16 @@
                         <input type="password" id="password" name="password" placeholder="Password" onkeyup="validatePassword()" required> <!-- Password input field -->
                         <span id="password-error"></span> <!-- Span for displaying password validation errors -->
                     </div>
-                    <button type="submit" onclick="return validateForm()"><b>Sign Up</b></button>
+                    <button type="submit" onclick="return validateForm()"><b>Login</b></button>
                     <!-- Submit button for the form -->
                     <span id="signup-error"></span> <!-- Span for displaying form submission errors -->
                 </form>
             </div>
             <!-- Add the "Sign Up" link to direct users back to the sign-up page -->
-            <p>Don't have an account? <a href="SignUp.html">Sign Up</a></p> <!-- "Sign Up" link -->
+            <p>Don't have an account? <a href="signUp.html">Sign Up</a></p> <!-- "Sign Up" link -->
         </div>
     </main>
-    <script src="js/login.js"></script> <!-- Link to the external JavaScript file for form validation -->
+    <script src="/js/login.js"></script> <!-- Link to the external JavaScript file for form validation -->
 </body>
 
 </html>

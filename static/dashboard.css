@@ -79,4 +79,8 @@ section .calories p {
     body {
         font-size: 28px;
     }
+    section .calories p {
+        font-size: 20px;
+        text-transform: capitalize;
+    }
 }

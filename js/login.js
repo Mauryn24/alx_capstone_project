@@ -20,7 +20,7 @@ function validateEmail() {
         return false;
     }
     // if input is valid
-    emailError.innerHTML = '<img src="Pictures/valid.png" alt="tick" width="20px">';
+    emailError.innerHTML = '<img src="/Pictures/valid.png" alt="tick" width="20px">';
     return true;
 }
 
@@ -44,7 +44,7 @@ function validatePassword() {
         return false;
     }
     // if input is valid
-    passwordError.innerHTML = '<img src="Pictures/valid.png" alt="tick" width="20px">';
+    passwordError.innerHTML = '<img src="/Pictures/valid.png" alt="tick" width="20px">';
     return true;
 }
 
