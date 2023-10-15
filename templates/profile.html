@@ -5,41 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:ital,wght@1,900&display=swap"
-        rel="stylesheet">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/profile.css">
+
 </head>
 
 <body>
     <header>
-        <img src="/Pictures/user.png" alt="Logo" width="100px">
+        <!-- <img src="/Pictures/class.png" alt="Logo" width="100px"> -->
+        <!-- <h1>Fit Psyche </h1> -->
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/timeline">Timeline</a></li>
+                <li><a href="/profile">Profile</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <header>
+        <img src="/static/Pictures/user.png" alt="Logo" width="100px">
         <div class="header">
             <h2 id="username">Username </h2>
             <h2 id="user-email">User20@gmail.com</h2>
         </div>
-        <!-- 
-            <script>
-        const welcomeHeader = document.getElementById("welcomeHeader");
-        const usernameInput = document.getElementById("username");
-        const historyList = document.getElementById("historyList");
-
-        function updateHeader() {
-            const username = usernameInput.value;
-            welcomeHeader.textContent = `Welcome, ${username}!`;
-        }
-
-        function recordWorkout() {
-            // ... (as in the previous example)
-        }
-    </script>
-         -->
     </header>
     <main>
         <!-- Acticity Goals, ie, monthl goals, weekly goals, daily goals -->
@@ -53,9 +43,9 @@
                         <b>
                             Monthly Goals
                             <span class="goal-icons">
-                                <img src="/Pictures/add.png" alt="add icon" width="30px" class="icon" onclick="">
-                                <img src="/Pictures/edit.png" alt="edit icon" width="30px" class="icon" onclick="">
-                                <img src="/Pictures/trash.png" alt="delete icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/add.png" alt="add icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon" onclick="">
                             </span>
                         </b>
                         <div id="goalInput">
@@ -68,9 +58,9 @@
                         <b>
                             Weekly Goal
                             <span class="goal-icons">
-                                <img src="/Pictures/add.png" alt="add icon" width="30px" class="icon" onclick="">
-                                <img src="/Pictures/edit.png" alt="edit icon" width="30px" class="icon" onclick="">
-                                <img src="/Pictures/trash.png" alt="delete icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/add.png" alt="add icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon" onclick="">
                             </span>
                         </b>
                         <div id="goalInput">
@@ -83,9 +73,9 @@
                         <b>
                             Daily Goal
                             <span class="goal-icons">
-                                <img src="/Pictures/add.png" alt="add icon" width="30px" class="icon" onclick="">
-                                <img src="/Pictures/edit.png" alt="edit icon" width="30px" class="icon" onclick="">
-                                <img src="/Pictures/trash.png" alt="delete icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/add.png" alt="add icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon" onclick="">
+                                <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon" onclick="">
                             </span>
                         </b>
                         <div id="goalInput">
@@ -130,19 +120,19 @@
         <section class="Progress">
             <h3>Progress</h3>
             <!-- I need a semicircle to show the progress of the user -->
-            <img src="/Pictures/work-in-progress.png" alt="progress icon" width="100px">
+            <img src="/static/Pictures/work-in-progress.png" alt="progress icon" width="100px">
             <h2>0%</h2>
         </section>
 
         <section class="footer">
-            <a href="dashboard.html" class="nav-link">
-                <img src="/Pictures/dashboard.png" alt="Dashboard icon" width="100px">
+            <a href="/dashboard" class="nav-link">
+                <img src="/static/Pictures/dashboard.png" alt="Dashboard icon" width="100px">
             </a>
-            <a href="timeline.html">
-                <img src="/Pictures/timeline.png" alt="Timeline icon" width="100px">
+            <a href="/timeline">
+                <img src="/static/Pictures/timeline.png" alt="Timeline icon" width="100px">
             </a>
-            <a href="profile.html">
-                <img src="/Pictures/user.png" alt="Profile icon" width="100px">
+            <a href="/profile">
+                <img src="/static/Pictures/user.png" alt="Profile icon" width="100px">
             </a>
         </section>
     </main>

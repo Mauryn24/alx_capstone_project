@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-size: 16px;
     /* background-color: #FFD700; */
-    background-image: url("/Pictures/fitness.jpg");
+    background-image: url("/static/Pictures/fitness.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

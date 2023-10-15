@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:ital,wght@1,900&display=swap"
-        rel="stylesheet">
+    <title>Fit Psyche Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
 
 <body>
     <header>
-        <img src="/Pictures/class.png" alt="Logo" width="100px">
+        <!-- <img src="/Pictures/class.png" alt="Logo" width="100px">
+        <h1>Fit Psyche </h1> -->
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/timeline">Timeline</a></li>
+                <li><a href="/profile">Profile</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <header>
+        <img src="/static/Pictures/class.png" alt="Logo" width="100px">
         <h1>Fit Psyche </h1>
     </header>
     <main>
         <section class="calories-progress">
             <div class="calories">
-                <img src="/Pictures/calories.png" alt="Total calories burned" width="100px">
+                <img src="/static/Pictures/calories.png" alt="Total calories burned" width="100px">
                 <p><span id="calories-value"><b>0</b></span> <b>calories burned</b></p>
                 <!-- note the span will need a js function to update the value -->
             </div>
@@ -30,18 +38,18 @@
         <section class="summary">
             <div class=" sum">
                 <div class="dumbel">
-                    <img src="/Pictures/workout.png" alt="workout icon" width="100px">
+                    <img src="/static/Pictures/workout.png" alt="workout icon" width="100px">
                 </div>
                 <div class="total-workout">
-                    <img src="/Pictures/thunder.png" alt="total workouts" width="50px">
+                    <img src="/static/Pictures/thunder.png" alt="total workouts" width="50px">
                     <p><span id="calories-value"><b>0</b></span> <b>Workouts</b></p>
                 </div>
                 <div class="calories-burned">
-                    <img src="/Pictures/calories (1).png" alt="total heart rate" width="50px">
+                    <img src="/static/Pictures/calories (1).png" alt="total heart rate" width="50px">
                     <p><span id="calories-value"><b>0</b></span> <b>Calories</b></p>
                 </div>
                 <div class="total-time">
-                    <img src="/Pictures/sand-clock.png" alt="total time taken" width="50px">
+                    <img src="/static/Pictures/sand-clock.png" alt="total time taken" width="50px">
                     <p><span id="calories-value"><b>0</b></span> <b>Minutes</b></p>
                 </div>
             </div>
@@ -61,20 +69,20 @@
         </section>
         <section class="footer">
             <div>
-                <a href="dashboard.html" class="nav-link">
-                    <img src="/Pictures/dashboard.png" alt="Dashboard icon" width="100px">
+                <a href="/dashboard" class="nav-link">
+                    <img src="/static/Pictures/dashboard.png" alt="Dashboard icon" width="100px">
                 </a>
                 <p><b>Dashboard</b></p>
             </div>
             <div>
-                <a href="timeline.html">
-                    <img src="/Pictures/timeline.png" alt="Timeline icon" width="100px">
+                <a href="/timeline">
+                    <img src="/static/Pictures/timeline.png" alt="Timeline icon" width="100px">
                 </a>
                 <p><b>Timeline</b></p>
             </div>
             <div>
-                <a href="profile.html">
-                    <img src="/Pictures/user.png" alt="Profile icon" width="100px">
+                <a href="/profile">
+                    <img src="/static/Pictures/user.png" alt="Profile icon" width="100px">
                 </a>
                 <p><b>Profile</b></p>
             </div>

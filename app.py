@@ -26,5 +26,13 @@ def dashboard():
 def timeline():
     return render_template('timeline.html')
 
+@app.route('/auth/login/')
+def login():
+    return render_template('auth/login.html')
+
+@app.route('/auth/signUp/')
+def signUp():
+    return render_template('auth/signUp.html')
+
 if __name__ == '_main_':
     app.run(debug=True)
