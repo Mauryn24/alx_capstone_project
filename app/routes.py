@@ -1,13 +1,13 @@
-from flask import Flask, render_template, url_for
+from app import app
+# import app decorators from app pakage
+
+from flask import render_template, url_for
 # Import the Flask class from the flask module
 
+# Import User and Workout models from models.py
+from app.models import User, Workout  # Import User and Workout models from models.py
 
-# Create a Flask application instance
-app = Flask(__name__)
 
-# Configure the static files
-app.static_url_path = '/static'  # URL path for static files
-app.static_folder = 'static'     # Folder where static files are located
 
 # Define a route for the root URL ("/")
 @app.route('/')
@@ -33,6 +33,3 @@ def login():
 @app.route('/auth/signUp/')
 def signUp():
     return render_template('auth/signUp.html')
-
-if __name__ == '_main_':
-    app.run(debug=True)
