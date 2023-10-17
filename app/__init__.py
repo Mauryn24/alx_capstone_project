@@ -21,7 +21,9 @@ bcrypt = Bcrypt(app)
 # Import the login function from flask_login
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'auth.login'  # Change 'auth.login' to your actual login route
+login_manager.login_view = 'login'  # Change 'auth.login' to your actual login route
+
+# login_manager.login_message_category = 'info'
 
 # Configure the static files
 app.static_url_path = '/static'

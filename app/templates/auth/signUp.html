@@ -14,8 +14,8 @@
     <main>
         <div class="container">
             <div class="form">
-                <form method="POST">
-                    {{ form.hidden_tag() }}
+
+                <form method="POST", action="/submit">
                     <h1>Welcome to FitPyche</h1>
                     <h2>Let's Do This</h2>
                 
@@ -48,8 +48,10 @@
                         <input type="password" id="confirm_password" name="confirm_password" placeholder="Password" onkeyup="validateConfirm()" required>
                         <span id="confirm-error"></span>
                     </div>
+
+                    <input type="submit" value="Sign Up">
                 
-                    <button type="submit" onclick="return validateForm()"><b>Sign Up</b></button>
+                    <!-- <button type="submit" onclick="return validateForm()"><b>Sign Up</b></button> -->
                     <span id="signup-error"></span>
                 </form>                
             </div>

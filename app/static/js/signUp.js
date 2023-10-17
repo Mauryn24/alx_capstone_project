@@ -5,7 +5,7 @@ function validateName() {
     // get the span errors by their ids
     let nameError = document.getElementById("name-error");
     // takes value of input
-    let name = document.getElementById("username").value;
+    let name = document.getElementById("fullname").value;
     // checks if input is empty
     if (name.length === 0) {
         nameError.innerHTML = "Name is required";
@@ -98,7 +98,7 @@ function validatePassword() {
 function validateConfirm() {
     let confirmError = document.getElementById("confirm-error");
     // takes value of input
-    let confirm = document.getElementById("confirm").value;
+    let confirm = document.getElementById("password").value;
     
     // checks if input is empty
     if (confirm.length === 0) {
@@ -107,7 +107,7 @@ function validateConfirm() {
     }
     
     // checks if input is valid
-    if(confirm !== document.getElementById("password").value) {
+    if(confirm !== document.getElementById("confirm_password").value) {
         // Display an error message in the error element
         confirmError.innerHTML = 'Passwords do not match.';
         // // Return false to prevent form submission
