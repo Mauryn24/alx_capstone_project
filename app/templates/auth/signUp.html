@@ -14,48 +14,44 @@
     <main>
         <div class="container">
             <div class="form">
-                <form>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
                     <h1>Welcome to FitPyche</h1>
-
                     <h2>Let's Do This</h2>
+                
                     <div class="user">
-                        <label for="username"><b>FullName:</b></label>
-                        <input type="text" id="username" name="username" placeholder="John Doe" onkeyUp="validateName()"
-                            required>
+                        <label for="fullname"><b>Full Name:</b></label>
+                        <input type="text" id="fullname" name="fullname" placeholder="John Doe" onkeyup="validateName()" required>
                         <span id="name-error"></span>
                     </div>
-
+                
                     <div class="mail">
                         <label for="email"><b>Email:</b></label>
-                        <input type="email" id="email" name="email" placeholder="user19@gmail.com"
-                            onKeyUp="validateEmail()" required>
+                        <input type="email" id="email" name="email" placeholder="user19@gmail.com" onkeyup="validateEmail()" required>
                         <span id="email-error"></span>
                     </div>
-
+                
                     <div>
                         <label for="phone"><b>Phone Number:</b></label>
-                        <input type="tel" id="phone" name="phone" placeholder="123-456-7890" onkeyup="validatePhone()"
-                            required>
+                        <input type="tel" id="phone" name="phone" placeholder="123-456-7890" onkeyup="validatePhone()" required>
                         <span id="phone-error"></span>
                     </div>
-
+                
                     <div class="pass">
                         <label for="password"><b>Password:</b></label>
-                        <input type="password" id="password" name="password" placeholder="Password"
-                            onkeyup="validatePassword()" required>
+                        <input type="password" id="password" name="password" placeholder="Password" onkeyup="validatePassword()" required>
                         <span id="password-error"></span>
                     </div>
-
+                
                     <div class="confirm">
-                        <label for="confirm"><b>Confirm Password:</b></label>
-                        <input type="password" id="confirm" name="confirm" placeholder="Password"
-                            onkeyup="validateConfirm()" required>
+                        <label for="confirm_password"><b>Confirm Password:</b></label>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Password" onkeyup="validateConfirm()" required>
                         <span id="confirm-error"></span>
                     </div>
-
+                
                     <button type="submit" onclick="return validateForm()"><b>Sign Up</b></button>
                     <span id="signup-error"></span>
-                </form>
+                </form>                
             </div>
             <!-- Add the "Already have an account? Login" link -->
             <p>Already have an account? <a href="/auth/login">Login</a></p>

@@ -14,7 +14,8 @@
     <main>
         <div class="container">
             <div class="form">
-                <form>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
                     <h1>Welcome to FitPyche</h1> <!-- Heading: Welcome message -->
                     <div class="mail">
                         <label for="email"><b>Email:</b></label> <!-- Label for email input -->
