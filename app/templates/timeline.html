@@ -115,17 +115,26 @@
                 <!-- Individual workout items will be added as list items (li) within this ul. -->
                 <ul>
                     {% for workout in info %}
-                        <div class="workout-item">
-                            <label>Exercise: {{ workout.exercise }}</label><br>
-                            <label>Sets: {{ workout.sets }}</label><br>
-                            <label>Reps: {{ workout.reps }}</label><br>
-                            <label>Weight: {{ workout.weight }}</label><br>
-                            <!-- Add more fields as needed -->
-                        </div>
-        
-                        {% endfor %}
+                    <div class="workout-item">
+                        <label>
+                            Exercise: {{ workout.exercise }}
+                            <a href="{{ url_for('get_workouts', workout_id=workout['id']) }}">
+                                <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon">
+                            </a>
+                            <a href="{{ url_for('delete_workout', workout_id=workout['id']) }}">
+                                <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon">
+                            </a>
+                        </label><br>
+                        <label>Sets: {{ workout.sets }}</label><br>
+                        <label>Reps: {{ workout.reps }}</label><br>
+                        <label>Duration: {{ workout.duration }}</label><br>
+                        <label>Date: {{ workout.date }}</label><br>
+                        <!-- Add more fields as needed -->
+                    </div>
+
+                    {% endfor %}
                 </ul>
-                
+
             </ul>
         </section>
     </section>
