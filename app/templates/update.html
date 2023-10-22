@@ -34,7 +34,7 @@
         <div id="workout-form">
             <!-- This section contains a form for users to log their workout details. -->
 
-            <form method="POST" action="/api/workouts/">
+            <form method="POST" action="/edit_workout/{{ workout['id'] }}/">
                 <h2>Log a Workout</h2>
                 <!-- This heading represents the title of the workout form section. -->
                 <!-- This form allows users to input their workout details. -->
@@ -42,11 +42,12 @@
                 <div>
                     <input type="hidden" name="user_id" value="{{ current_user.id }}">
                 </div>
+
                 <div>
                     <label for="exercise">Exercise:</label>
                     <!-- This label is for the "Exercise" input field. -->
 
-                    <input type="text" id="exercise" name="exercise" required>
+                    <input type="text" id="exercise" value="{{ workout.exercise }}" name="exercise" required>
                     <!-- This input field is for users to specify the exercise they performed. -->
                 </div>
 
@@ -54,7 +55,7 @@
                     <label for="sets">Sets:</label>
                     <!-- This label is for the "Sets" input field. -->
 
-                    <input type="number" id="sets" name="sets" required>
+                    <input type="number" id="sets" value="{{ workout.sets }}" name="sets" required>
                     <!-- This input field is for users to specify the number of sets they performed. -->
                 </div>
 
@@ -62,7 +63,7 @@
                     <label for="reps">Reps:</label>
                     <!-- This label is for the "Reps" input field. -->
 
-                    <input type="number" id="reps" name="reps" required>
+                    <input type="number" id="reps" value="{{ workout.reps }}" name="reps" required>
                     <!-- This input field is for users to specify the number of repetitions they performed. -->
                 </div>
 
@@ -70,7 +71,7 @@
                     <label for="duration">Duration (minutes):</label>
                     <!-- This label is for the "Duration" input field. -->
 
-                    <input type="number" id="duration" name="duration" required>
+                    <input type="number" id="duration" value="{{ workout.duration }}" name="duration" required>
                     <!-- This input field is for users to specify the duration of their workout in minutes. -->
                 </div>
 
@@ -78,7 +79,7 @@
                     <label for="reps">Date:</label>
                     <!-- This label is for the "Reps" input field. -->
 
-                    <input type="date" id="reps" name="date" required>
+                    <input type="date" id="reps" value="{{ workout.date }}" name="date" required>
                     <!-- This input field is for users to specify the number of repetitions they performed. -->
                 </div>
 
@@ -87,71 +88,17 @@
                     <label for="reps">Weight:</label>
                     <!-- This label is for the "Reps" input field. -->
 
-                    <input type="number" id="reps" name="weight" required>
+                    <input type="number" id="reps" value="{{ workout.weight }}" name="weight" required>
                     <!-- This input field is for users to specify the number of repetitions they performed. -->
                 </div>
 
-                <button type="submit">Log Workout</button>
+                <button type="submit">Log Updates</button>
                 <!-- This button allows users to submit their workout details. -->
 
             </form>
         </div>
-
-        <section id="workout-history">
-            <!-- This section is for displaying the workout history. -->
-
-            <h2>Workout History</h2>
-            <!-- This heading represents the title of the workout history section. -->
-
-            <ul id="workout-list">
-                <!-- This unordered list (ul) will display the workout history items. -->
-                <!-- Individual workout items will be added as list items (li) within this ul. -->
-                <ul>
-                    {% for workout in info %}
-                    <div class="workout-item">
-                        <label>
-                            Date: {{ workout.date }}
-                            <a href="{{ url_for('edit_workout', workout_id=workout['id']) }}">
-                                <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon">
-                            </a>
-                            <a href="{{ url_for('delete_workout', workout_id=workout['id']) }}">
-                                <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon">
-                            </a>
-                        </label><br>
-                        <label>Exercise: {{ workout.exercise }}</label><br>
-                        <label>Sets: {{ workout.sets }}</label><br>
-                        <label>Reps: {{ workout.reps }}</label><br>
-                        <label>Duration: {{ workout.duration }}</label><br>
-                        <label>Calories_burned: {{ workout.calories_burned }}</label><br>
-                        <!-- Add more fields as needed -->
-                    </div>
-
-                    {% endfor %}
-                </ul>
-
-            </ul>
-        </section>
     </section>
-    <section class="footer">
-        <div>
-            <a href="/dashboard" class="nav-link">
-                <img src="/static/Pictures/dashboard.png" alt="Dashboard icon" width="100px">
-            </a>
-            <p><b>Dashboard</b></p>
-        </div>
-        <div>
-            <a href="/timeline">
-                <img src="/static/Pictures/timeline.png" alt="Timeline icon" width="100px">
-            </a>
-            <p><b>Timeline</b></p>
-        </div>
-        <div>
-            <a href="/profile">
-                <img src="/static/Pictures/user.png" alt="Profile icon" width="100px">
-            </a>
-            <p><b>Profile</b></p>
-        </div>
-    </section>
+ 
     <script src="/static/js/script.js"></script>
 </body>
 

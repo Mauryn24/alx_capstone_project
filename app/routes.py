@@ -77,7 +77,9 @@ def get_workouts():
         weight = request.form.get('weight')
         duration = request.form.get('duration')
         date = request.form.get('date')
-        calories_burned = request.form.get('calories_burned')
+        MET = 3
+        calories_burned = (MET * int(sets) * int(weight) * int(reps) * int(duration)/60)/1000
+        calories_burned = float(calories_burned)
         weight = request.form.get('weight')
         user_id = request.form.get('user_id')
 
@@ -145,21 +147,21 @@ def logout():
 def account():
     return render_template('acccount.html', title='Account')
 
-@app.route('/edit_workout/<int:id>', methods=['GET', 'POST'])
-def edit_workout(id):
-    info = Workout.query.get(id)
+@app.route('/edit_workout/<int:workout_id>/', methods=['GET', 'POST'])
+def edit_workout(workout_id):
+    workout = Workout.query.get(workout_id)
     if request.method == 'POST':
-        info.exercise = request.form['exercise']
-        info.sets = request.form['sets']
-        info.reps = request.form['reps']
-        info.duration = request.form['duration']
-        info.date = request.form['date']
+        workout.exercise = request.form['exercise']
+        workout.sets = request.form['sets']
+        workout.reps = request.form['reps']
+        workout.duration = request.form['duration']
+        workout.date = request.form['date']
         db.session.commit()
         flash('Workout updated successfully!', 'success')
         return redirect(url_for('timeline'))
-    return render_template('timeline.html', info=info)
+    return render_template('update.html', workout=workout)
 
-@app.route('/delete_workout/<int:workout_id>')
+@app.route('/delete_workout/<int:workout_id>/')
 def delete_workout(workout_id):
     
     info = Workout.query.get(workout_id)
