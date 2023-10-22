@@ -9,6 +9,10 @@ from app.models import User, Workout  # Import User and Workout models from mode
 
 from flask_login import login_user, current_user, logout_user, login_required
 
+from flask import jsonify
+
+# user_id = current_user.id
+
 
 # Define a route for the root URL ("/")
 @app.route('/')
@@ -47,7 +51,36 @@ def dashboard():
 @app.route('/timeline/')
 @login_required
 def timeline():
+    info = Workout.query.all()
+    print (info)
     return render_template('timeline.html')
+
+@app.route('/api/workouts/', methods=['GET', 'POST'])
+def get_workouts():
+    # user_id = session.get('user_id')  # Retrieve the user's ID from the session
+
+    if request.method == 'POST':
+        exercise = request.form.get('exercise')
+        sets = request.form.get('sets')
+        reps = request.form.get('reps')
+        weight = request.form.get('weight')
+        duration = request.form.get('duration')
+        date = request.form.get('date')
+        calories_burned = request.form.get('calories_burned')
+        weight = request.form.get('weight')
+        user_id = request.form.get('user_id')
+
+        print('user_id', user_id)
+        print('date', date)
+        workout = Workout(user_id=user_id, exercise=exercise, sets=sets, reps=reps, weight=weight, duration=duration, date=date, calories_burned=calories_burned)
+        db.session.add(workout)
+        db.session.commit()
+
+        # Retrieve all workout data
+        info = Workout.query.all()
+        return render_template('timeline.html', info=info)
+
+    # return render_template('timeline.html')
 
 @app.route('/auth/login/', methods=['GET', 'POST'])
 def login():

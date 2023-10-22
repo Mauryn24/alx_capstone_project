@@ -36,7 +36,8 @@ class User(UserMixin, db.Model):
 
     # how our objects is printed
     def __repr__(self):
-        return f"User('{self.fullname}', '{self.email}', '{self.phone}', '{self.image_file}')"
+        return f"User('{self.id}', '{self.fullname}', '{self.email}', '{self.phone}', '{self.image_file}')"
+    
     
     # set_password function
     def set_password(self, password):
@@ -62,7 +63,7 @@ class Workout(db.Model):
     reps = db.Column(db.Integer, nullable=False)
     weight = db.Column(db.Integer, nullable=False)
     duration = db.Column(db.Integer, nullable=False)
-    date = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.String(100), nullable=True)
     calories_burned = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     def __repr__(self):

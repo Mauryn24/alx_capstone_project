@@ -13,6 +13,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Initialize the database
 db = SQLAlchemy(app)
 
+# initialize the database
+@app.cli.command()
+def init_db():
+    """Initialize the database."""
+    db.create_all()
+
 #
 app.app_context().push()
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline Page</title>
     <link rel="stylesheet" href="/static/timeline.css">
-    
+
 </head>
 
 <body>
@@ -34,11 +34,14 @@
         <div id="workout-form">
             <!-- This section contains a form for users to log their workout details. -->
 
-            <form>
+            <form method="POST" action="/api/workouts/">
                 <h2>Log a Workout</h2>
                 <!-- This heading represents the title of the workout form section. -->
                 <!-- This form allows users to input their workout details. -->
 
+                <div>
+                    <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                </div>
                 <div>
                     <label for="exercise">Exercise:</label>
                     <!-- This label is for the "Exercise" input field. -->
@@ -71,6 +74,30 @@
                     <!-- This input field is for users to specify the duration of their workout in minutes. -->
                 </div>
 
+                <div>
+                    <label for="reps">Date:</label>
+                    <!-- This label is for the "Reps" input field. -->
+
+                    <input type="date" id="reps" name="date" required>
+                    <!-- This input field is for users to specify the number of repetitions they performed. -->
+                </div>
+
+                <div>
+                    <label for="reps">Calories burned:</label>
+                    <!-- This label is for the "Reps" input field. -->
+
+                    <input type="number" id="reps" name="calories_burned" required>
+                    <!-- This input field is for users to specify the number of repetitions they performed. -->
+                </div>
+
+                <div>
+                    <label for="reps">Weight:</label>
+                    <!-- This label is for the "Reps" input field. -->
+
+                    <input type="number" id="reps" name="weight" required>
+                    <!-- This input field is for users to specify the number of repetitions they performed. -->
+                </div>
+
                 <button type="submit">Log Workout</button>
                 <!-- This button allows users to submit their workout details. -->
 
@@ -86,7 +113,19 @@
             <ul id="workout-list">
                 <!-- This unordered list (ul) will display the workout history items. -->
                 <!-- Individual workout items will be added as list items (li) within this ul. -->
-
+                <ul>
+                    {% for workout in info %}
+                        <div class="workout-item">
+                            <label>Exercise: {{ workout.exercise }}</label><br>
+                            <label>Sets: {{ workout.sets }}</label><br>
+                            <label>Reps: {{ workout.reps }}</label><br>
+                            <label>Weight: {{ workout.weight }}</label><br>
+                            <!-- Add more fields as needed -->
+                        </div>
+        
+                        {% endfor %}
+                </ul>
+                
             </ul>
         </section>
     </section>
@@ -110,7 +149,7 @@
             <p><b>Profile</b></p>
         </div>
     </section>
-    <script src="static/js/script.js"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 
 </html>

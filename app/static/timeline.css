@@ -26,8 +26,13 @@ header, h1 {
     text-align: center;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }
 
+.workout-item {
+    box-sizing: border-box;
+    width: calc(50% - 20px); /* Display two items side by side; adjust width as needed */
+}
 
 #workout-form h2{
     text-align: center;
