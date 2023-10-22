@@ -50,8 +50,14 @@ def profile():
 @app.route('/dashboard/')
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    workouts = current_user.Workout  # Get all workouts for the current user
 
+    total_workouts = len(workouts)  # Calculate the total number of workouts
+    total_calories = sum(workout.calories_burned for workout in workouts)  # Calculate total calories burned
+    total_time = sum(workout.duration for workout in workouts)  # Calculate total time in minutes
+
+    return render_template('dashboard.html', total_workouts=total_workouts, total_calories=total_calories, total_time=total_time)
+    # return render_template('dashboard.html')
 
 @app.route('/timeline/')
 @login_required

@@ -22,15 +22,15 @@
             </ul>
 
         </nav>
-        
+
         <nav>
             <!-- if user  is logged in then the route that should be displayed is the logut route  -->
             {% if current_user. is_authenticated %}
-                <a href="/account">Account</a>
-                <a href="/logout">logout</a>
+            <a href="/account">Account</a>
+            <a href="/logout">logout</a>
             {% else %}
-                <a href="/auth/login">Login</a>
-                <a href="/auth/signUp"> SignUp</a>
+            <a href="/auth/login">Login</a>
+            <a href="/auth/signUp"> SignUp</a>
             {% endif %}
         </nav>
     </header>
@@ -42,7 +42,7 @@
         <section class="calories-progress">
             <div class="calories">
                 <img src="/static/Pictures/calories.png" alt="Total calories burned" width="100px">
-                <p><span id="calories-value"><b>0</b></span> <b>calories burned</b></p>
+                <p><span id="calories-value"><b>{{ total_calories }}</b></span> <b>calories burned</b></p>
                 <!-- note the span will need a js function to update the value -->
             </div>
         </section>
@@ -53,15 +53,15 @@
                 </div>
                 <div class="total-workout">
                     <img src="/static/Pictures/thunder.png" alt="total workouts" width="50px">
-                    <p><span id="calories-value"><b>0</b></span> <b>Workouts</b></p>
+                    <p><span id="calories-value"><b>{{ total_workouts }}</b></span> <b>Workouts</b></p>
                 </div>
                 <div class="calories-burned">
                     <img src="/static/Pictures/calories (1).png" alt="total heart rate" width="50px">
-                    <p><span id="calories-value"><b>0</b></span> <b>Calories</b></p>
+                    <p><span id="calories-value"><b>{{ total_calories }}</b></span> <b>Calories</b></p>
                 </div>
                 <div class="total-time">
                     <img src="/static/Pictures/sand-clock.png" alt="total time taken" width="50px">
-                    <p><span id="calories-value"><b>0</b></span> <b>Minutes</b></p>
+                    <p><span id="calories-value"><b>{{ total_time }}</b></span> <b>Minutes</b></p>
                 </div>
             </div>
         </section>
