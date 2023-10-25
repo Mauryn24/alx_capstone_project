@@ -156,6 +156,10 @@ main {
     color: orange;
 }
 
+.user,
+.label {
+    color: blue;
+} 
 .line-through {
     text-decoration: line-through;
 }
