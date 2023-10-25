@@ -49,7 +49,6 @@ main {
     padding: 20px;
 }
 
-/* Styling for different sections like activity, about, user, and change-password */
 .activity,
 .about,
 .user,
@@ -65,14 +64,16 @@ main {
     color: orange;
 }
 
-/* Styling for forms inside the activity section */
 .activity form {
     display: inline-block;
+    /* Display the form as an inline-block element */
     text-align: left;
-    margin: 0 auto; /* Center horizontally using margin */
+    /* Reset text alignment within the form */
+    margin: 0 auto;
+    /* Center horizontally using margin */
 }
 
-/* Styling for labels, input fields, and submit buttons in the activity section */
+/* Style the "Activity Goals" section */
 .activity label,
 .activity input[type="text"],
 .activity button[type="submit"] {
@@ -89,38 +90,42 @@ main {
     cursor: pointer;
 }
 
-/* Styling for unordered lists within the activity section */
 .activity ul {
     list-style: none;
     padding: 0;
     text-align: left;
     display: flex;
     flex-direction: column;
+    /* Reset text alignment within the list */
 }
 
 .activity li {
     text-align: left;
+    /* Reset text alignment within list items */
     display: inline-block;
+    /* Display list items as inline-block elements */
     margin: 0 10px;
+    /* Add margin between list items for spacing */
 }
 
-/* Styling for the about section */
 .about {
     text-align: center;
+    /* Center the text horizontally */
 }
 
 .about h3 {
     color: orange;
 }
-
-/* Styling for forms in the about section */
 .about form {
     display: inline-block;
+    /* Display the forms as inline-block elements */
     text-align: left;
-    margin: 0 auto; /* Center horizontally using margin */
+    /* Reset text alignment within the forms */
+    margin: 0 auto;
+    /* Center horizontally using margin */
 }
 
-/* Styling for labels, input fields, and submit buttons in the about section */
+/* Style the "About You" section */
 .about label,
 .about input[type="text"],
 .about button[type="submit"] {
@@ -137,7 +142,7 @@ main {
     cursor: pointer;
 }
 
-/* Styling for the user section */
+/* Style the "User Profile" section */
 .user {
     text-align: center;
 }
@@ -151,31 +156,35 @@ main {
     color: orange;
 }
 
-.user .label {
+.user,
+.label {
     color: blue;
-}
-
-.user .line-through {
+} 
+.line-through {
     text-decoration: line-through;
 }
 
-/* Styling for the change password section */
+/* Style the "Change Password" section */
+
 .change-password {
     text-align: center;
+    /* Center the text horizontally */
 }
 
 .change-password h3 {
     color: orange;
 }
-
-/* Styling for forms in the change password section */
 .change-password form {
     display: inline-block;
+    /* Display the form as an inline-block element */
     text-align: left;
-    margin: 0 auto; /* Center horizontally using margin */
+    /* Reset text alignment within the form */
+    margin: 0 auto;
+    /* Center horizontally using margin */
+    
 }
 
-/* Styling for labels, input fields, and submit buttons in the change password section */
+
 .change-password label,
 .change-password input[type="password"],
 .change-password button[type="submit"] {
@@ -192,7 +201,7 @@ main {
     cursor: pointer;
 }
 
-/* Styling for the footer */
+/* Style the footer */
 .footer {
     display: flex;
     justify-content: space-around;
@@ -215,10 +224,27 @@ main {
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
+
     /* Styles for screens up to 768px (tablet and mobile) */
     main {
         padding: 10px;
     }
 
+    .activity ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Center list items horizontally within the container */
+    }
+
+    .activity li {
+        flex: 1;
+        /* Distribute list items evenly in a row */
+        margin: 10px;
+        /* Add margin around list items */
+    }
+
     /* Adjust other styles as needed for smaller screens */
 }
+
+/* Additional media queries for larger screens can be added as needed */
