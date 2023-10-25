@@ -29,7 +29,8 @@
 
 ### 2. Workout Logging
 
-- *Description:* Users can keep track of their fitness activities by logging their workouts, which can include cardio, strength training, and flexibility exercises.
+- *Description:* Users can keep track of their fitness activities by logging their workouts, which can include cardio, strength training, and flexibility exercises. Users can input the exercise name, sets, reps, duration taken and calories burned
+
 - *Interaction:* Users can manually enter their workouts and enter information about the length, type, and intensity of their exercises.
 <br>
 
@@ -39,17 +40,7 @@
 - *Interaction:* Using the app, users can set, edit, and see the progress of their goals while receiving notifications.
 <br>
 
-### 4. Sleep Analysis
-- *Description:* To enhance sleep quality and comprehend their sleep cycles, users can monitor and analyze their sleep patterns.
-- *Interactions:* Users can manually enter sleep data or enable sleep tracking on wearable devices to receive detailed sleep analysis reports.
-<br>
-
-### 5. Nutrition Tracking<br>
-- *Description:* Users can track their daily food intake to keep tabs on their diet and learn more about their eating habits.
-- *Interaction:* Users interact by entering meals and snacks, scanning barcodes for nutritional data, or selecting from a database of foods and recipes to keep a thorough food diary.
-<br>
-
-### 6. User's Progress Feature<br>
+### 4. User's Progress Feature<br>
 - *Description:* Users get valuable insights, motivation and clear understanding of their fitness and health journey through graphical representations. The visualizations make it easier for users to track their achievements, set new goals and make informed decisions regarding their health
 
 - *Interaction:* Users get a dashboard overview of the calories burned and active minutes / history Progress Chart / Goal Progress Tracking through a bar or radial chart / Nutrition Summary / Sleep Patterns Analysis.
@@ -86,6 +77,8 @@
 
 * <img src="Pictures/Profil.jpg" alt="Profile Page">
 
+- the video Demo of my application
+<a href="https://drive.google.com/file/d/1u3jgkOVwBU9h1tKbpBSX-B78kSxt3wjN/view?usp=sharing" alt="video Demo">
 ## ROADMAP AND FUTURE ENHANCEMENTS
 
 - This roadmap outlines the future plans and potential improvements for the fitness tracker app, aiming to provide users with an even more comprehensive, personalized, and engaging fitness and health experience.
@@ -152,6 +145,16 @@ Future Plan: Prepare the infrastructure for scalability to accommodate a growing
 
 Future Plan: Offer the app in multiple languages and adapt it to different regional fitness preferences and cultures.
 
+### 13. Sleep Analysis
+- *Description:* To enhance sleep quality and comprehend their sleep cycles, users can monitor and analyze their sleep patterns.
+- *Interactions:* Users can manually enter sleep data or enable sleep tracking on wearable devices to receive detailed sleep analysis reports.
+<br>
+
+### 14. Nutrition Tracking<br>
+- *Description:* Users can track their daily food intake to keep tabs on their diet and learn more about their eating habits.
+- *Interaction:* Users interact by entering meals and snacks, scanning barcodes for nutritional data, or selecting from a database of foods and recipes to keep a thorough food diary.
+<br>
+
 ## VERSION CONTROL SYSTEM
 * git
 
@@ -160,6 +163,6 @@ Future Plan: Offer the app in multiple languages and adapt it to different regio
 
 If you have any questions, suggestions, or need assistance with the project, feel free to get in touch:
 
-**Email:**   maurynnyakio19@gmail.com
-**Github:**  https://github.com/Mauryn24
-**Twitter**  https://twitter.com/MaurynNyakio
+- **Email:**   maurynnyakio19@gmail.com
+- **Github:**  https://github.com/Mauryn24
+- **Twitter**  https://twitter.com/MaurynNyakio
