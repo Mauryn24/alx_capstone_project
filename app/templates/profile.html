@@ -1,175 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Define character encoding and compatibility settings for IE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Configure the viewport for responsive design -->
     <title>Profile</title>
-    <!-- Set the title of the webpage -->
     <link rel="stylesheet" href="/static/profile.css">
-    <!-- Link to the external CSS file for styling -->
 
 </head>
+
 <body>
     <header>
-        <!-- Header section -->
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <!-- Menu item to navigate to the Home page -->
                 <li><a href="/dashboard">Dashboard</a></li>
-                <!-- Menu item to navigate to the Dashboard page -->
                 <li><a href="/timeline">Timeline</a></li>
-                <!-- Menu item to navigate to the Timeline page -->
                 <li><a href="/profile">Profile</a></li>
-                <!-- Menu item to navigate to the Profile page -->
             </ul>
+
         </nav>
     </header>
+
     <main>
         <section class="activity">
             <h3>Activity Goals</h3>
-            <!-- Title for the activity goals section -->
 
             <!-- Goal submission form -->
             <form method="POST" action="/add_goal">
-                <!-- Form to submit activity goals -->
                 <label for="description">Goal Description:</label>
-                <!-- Label for goal description input -->
                 <input type="text" id="description" name="description" required>
-                <!-- Input field for goal description -->
                 <br>
                 <button type="submit">Set Goal</button>
-                <!-- Button to set a new goal -->
             </form>
 
             <ul>
-                <!-- Unordered list for displaying activity goals -->
                 {% for goal in goals %}
-                <!-- Loop through activity goals -->
                 <li>
-                    <!-- List item for each goal -->
                     <span class="goal-description" onclick="toggleLineThrough(this)">{{ goal.description }}</span>
-                    <!-- Goal description with click-to-toggle line-through -->
                     <a href="/edit/{{ goal.id }}">Edit</a>
-                    <!-- Edit link for the goal -->
                     <a href="/delete/{{ goal.id }}">Delete</a>
-                    <!-- Delete link for the goal -->
                 </li>
                 {% endfor %}
             </ul>
         </section>
         </div>
-        <!-- Closing div tag without an opening div - Remove if unnecessary -->
 
-        <!-- About you section -->
+        <!-- About you -->
         <section class="about">
             <h3>About you</h3>
-            <!-- Title for the "About you" section -->
             <form method="POST" action="/index/">
-                <!-- Form for user information -->
                 <label for="gender">Gender:</label>
-                <!-- Label for gender input -->
                 <input type="text" id="gender" name="gender" required>
-                <!-- Input field for gender -->
+
                 <label for="weight">Weight:</label>
-                <!-- Label for weight input -->
                 <input type="text" id="weight" name="weight" required>
-                <!-- Input field for weight -->
+
                 <label for="age">Age:</label>
-                <!-- Label for age input -->
                 <input type="text" id="age" name="age" required>
-                <!-- Input field for age -->
+
+
                 <label for="height">Height:</label>
-                <!-- Label for height input -->
                 <input type="text" id="height" name="height" required>
-                <!-- Input field for height -->
+
                 <button type="submit">Save</button>
-                <!-- Button to save user information -->
             </form>
             <br>
         </section>
-        <!-- Closing div tag without an opening div - Remove if unnecessary -->
+
 
         <section class="user">
-            <!-- User profile section -->
             <h3>user profile</h3>
-            <!-- Title for the user profile section -->
             <h4 id="username" class="label">Username: {{ current_user.fullname }}</h4>
-            <!-- Display the user's username -->
             <h4 id="user-email" class="label"> Email: {{ current_user.email }}</h4>
-            <!-- Display the user's email -->
             {% for p in profile%}
-            <!-- Loop through user profiles -->
             <h4>Gender: {{ p.gender }}</h4>
-            <!-- Display user's gender -->
             <h4>Weight: {{ p.weight }} kgs</h4>
-            <!-- Display user's weight -->
             <h4>Age: {{ p.age }} years old</h4>
-            <!-- Display user's age -->
             <h4>Height: {{ p.height }} ft</h4>
-            <!-- Display user's height -->
 
-            <!-- Edit and Delete links for user profile -->
+            <!-- Edit and Delete links -->
             <a href="{{ url_for('edit_profile', profile_id=p.id) }}">Edit</a>
-            <!-- Edit link for user profile -->
             <a href="{{ url_for('delete_profile', profile_id=p.id) }}">Delete</a>
-            <!-- Delete link for user profile -->
             {% endfor %}
         </section>
 
         <section class="change-password">
-            <!-- Change password section -->
             <h3>Change Password</h3>
-            <!-- Title for the change password section -->
             <form method="POST, GET" action="{{ url_for('change_password') }}">
-                <!-- Form to change user password -->
                 <label for="old_password">Old Password:</label>
-                <!-- Label for old password input -->
                 <input type="password" id="old_password" name="old_password" required>
-                <!-- Input field for old password -->
                 <label for="new_password">New Password:</label>
-                <!-- Label for new password input -->
                 <input type="password" id="new_password" name="new_password" required>
-                <!-- Input field for new password -->
                 <label for="confirm_password">Confirm Password:</label>
-                <!-- Label for password confirmation input -->
                 <input type="password" id="confirm_password" name="confirm_password" required>
-                <!-- Input field for password confirmation -->
                 <button type="submit">Change Password</button>
-                <!-- Button to change the password -->
             </form>
         </section>
 
+
+
         <section class="footer">
-            <!-- Footer section -->
             <div>
                 <a href="/dashboard" class="nav-link">
                     <img src="/static/Pictures/home-button.png" alt="Dashboard icon" width="100px">
                 </a>
-                <!-- Link to the dashboard with an icon -->
                 <p><b>Dashboard</b></p>
-                <!-- Text: "Dashboard" -->
             </div>
             <div>
                 <a href="/timeline">
                     <img src="/static/Pictures/timeline (1).png" alt="Timeline icon" width="100px">
                 </a>
-                <!-- Link to the timeline with an icon -->
                 <p><b>Timeline</b></p>
-                <!-- Text: "Timeline" -->
             </div>
             <div>
                 <a href="/profile">
                     <img src="/static/Pictures/user.png" alt="Profile icon" width="100px">
                 </a>
-                <!-- Link to the profile with an icon -->
                 <p><b>Profile</b></p>
-                <!-- Text: "Profile" -->
             </div>
         </section>
+
     </main>
     <script>
         function toggleLineThrough(element) {
@@ -177,4 +129,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -1,180 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Define the document type and specify the document's language (English) -->
 
 <head>
     <meta charset="UTF-8">
-    <!-- Set the character encoding to UTF-8 (Unicode Transformation Format - 8-bit) -->
-    <!-- UTF-8 is a widely used character encoding that supports various languages. -->
-
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <!-- Commented-out meta tag that is not currently in use -->
-    <!-- This meta tag is used to specify the compatibility settings for Internet Explorer.
-         However, it's often not necessary in modern web development. -->
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Configure the viewport settings for responsive design -->
-    <!-- The viewport meta tag ensures that the web page content is scaled properly on different devices.
-         It sets the initial zoom level to 1.0, and the width to the device's width. -->
-
     <title>Fit Psyche Dashboard</title>
-    <!-- Set the title of the web page, which is displayed in the browser's title bar -->
-    
     <link rel="stylesheet" href="/static/dashboard.css">
-    <!-- Link to an external CSS stylesheet for styling -->
-    <!-- The "href" attribute specifies the path to the CSS file.
-         In this case, it's referencing "dashboard.css" in the "static" directory. -->
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Include the Chart.js library for creating interactive charts -->
-    <!-- The "src" attribute specifies the source (URL) of the JavaScript file. -->
-
 </head>
 
 <body>
     <header>
         <nav class="navigation">
-            <!-- Create a navigation bar for the website's main links -->
             <ul>
                 <li><a href="/">Home</a></li>
-                <!-- List item with a link to the home page -->
                 <li><a href="/dashboard">Dashboard</a></li>
-                <!-- List item with a link to the dashboard page -->
                 <li><a href="/timeline">Timeline</a></li>
-                <!-- List item with a link to the timeline page -->
                 <li><a href="/profile">Profile</a></li>
-                <!-- List item with a link to the user profile page -->
             </ul>
+
         </nav>
 
         <nav class="logout">
-            <!-- Create a navigation bar for login and logout links -->
-            <!-- Display login/logout links based on the user's authentication status -->
-
-            {% if current_user.is_authenticated %}
-            <!-- Use a template variable to check if the user is authenticated -->
-            <!-- If the user is authenticated, show the logout link -->
+            <!-- if user  is logged in then the route that should be displayed is the logut route  -->
+            {% if current_user. is_authenticated %}
             <a href="/logout">logout</a>
             {% else %}
-            <!-- If the user is not authenticated, show the login and sign-up links -->
             <a href="/auth/login">Login</a>
             <a href="/auth/signUp"> SignUp</a>
             {% endif %}
         </nav>
+
+        
     </header>
     <main>
         <section class="header">
-            <!-- Create a header section for the page title and logo -->
             <img src="/static/Pictures/class.png" alt="Logo" width="100px">
-            <!-- Display an image logo with alternative text -->
-            <!-- The "alt" attribute provides a text description for the image -->
-            <!-- The "width" attribute sets the image's width to 100 pixels -->
-            <h1>Fit Psyche</h1>
-            <!-- Display the website's title -->
+            <h1>Fit Psyche </h1>
         </section>
         <section class="calories-progress">
-            <!-- Create a section for displaying calorie progress -->
             <div class="calories">
-                <!-- Create a container for calorie-related content -->
                 <img src="/static/Pictures/calories.png" alt="Total calories burned" width="100px">
-                <!-- Display an image representing total calories burned -->
-                <!-- The "alt" attribute provides a text description for the image -->
-                <!-- The "width" attribute sets the image's width to 100 pixels -->
                 <p><span id="calories-value"><b>{{ total_calories }}</b></span> <b>calories burned</b></p>
-                <!-- Display the total calories burned with dynamic data ({{ total_calories }}) -->
-                <!-- A <span> element with an "id" is used for updating the value using JavaScript -->
-                <!-- The <b> element is used for emphasizing text -->
+                <!-- note the span will need a js function to update the value -->
             </div>
         </section>
         <section class="summary">
-            <!-- Create a section for summarizing workout statistics -->
-            <div class="sum">
-                <!-- Create a container for the summary content -->
+            <div class=" sum">
                 <div class="dumbel">
                     <img src="/static/Pictures/kettlebell.png" alt="workout icon" width="100px">
-                    <!-- Display an image representing workouts with alternative text -->
                 </div>
                 <div class="total-workout">
-                    <!-- Create a container for the total workouts -->
                     <img src="/static/Pictures/light.png" alt="total workouts" width="50px">
-                    <!-- Display an image representing total workouts with alternative text -->
                     <p><span id="calories-value"><b>{{ total_workouts }}</b></span> <b>Workouts</b></p>
-                    <!-- Display the total workouts with dynamic data ({{ total_workouts }}) -->
                 </div>
                 <div class="calories-burned">
-                    <!-- Create a container for the total calories burned -->
                     <img src="/static/Pictures/cal.png" alt="total heart rate" width="50px">
-                    <!-- Display an image representing total calories burned with alternative text -->
                     <p><span id="calories-value"><b>{{ total_calories }}</b></span> <b>Calories</b></p>
-                    <!-- Display the total calories burned with dynamic data ({{ total_calories }}) -->
                 </div>
                 <div class="total-time">
-                    <!-- Create a container for the total time taken -->
                     <img src="/static/Pictures/hourglass.png" alt="total time taken" width="50px">
-                    <!-- Display an image representing total time taken with alternative text -->
                     <p><span id="calories-value"><b>{{ total_time }}</b></span> <b>Minutes</b></p>
-                    <!-- Display the total time taken with dynamic data ({{ total_time }}) -->
                 </div>
             </div>
         </section>
         <section class="statistics">
-            <!-- Create a section for displaying workout and calories statistics -->
             <h2>Progress</h2>
-            <!-- Display a heading for the progress section -->
             <div class="graph">
-                <!-- Create a container for the charts -->
                 <div class="workout-graph">
-                    <!-- Create a container for the workout chart -->
                     <h3>workout-graph</h3>
-                    <!-- Display a heading for the workout chart -->
                     <canvas id="myChart" width="400" height="200"></canvas>
-                    <!-- Create a canvas element for the workout chart -->
-                    <!-- JavaScript code is used to initialize and populate this chart -->
+
+                    <script>
+                        // Access the data passed to the template
+                        var data = {{ data| tojson | safe }};
+
+                        // Function to initialize the chart
+                        function initializeChart(data) {
+                            var dates = data.map(item => item.date);
+                            var workoutSets = data.map(item => item.sets);
+
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: dates,
+                                    datasets: [{
+                                        label: 'Workout Sets',
+                                        data: workoutSets,
+                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Date'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Workout Sets'
+                                            },
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        initializeChart(data);
+                    </script>
                 </div>
 
                 <div class="calories-graph">
-                    <!-- Create a container for the calories chart -->
                     <h3>calories-graph</h3>
-                    <!-- Display a heading for the calories chart -->
                     <canvas id="theChart" width="400" height="200"></canvas>
-                    <!-- Create a canvas element for the calories chart -->
-                    <!-- JavaScript code is used to initialize and populate this chart -->
+
+                    <script>
+                        // Access the data passed to the template
+                        var data = {{ datas| tojson | safe }};
+
+                        // Function to initialize the chart
+                        function initializeChart(data) {
+                            var dates = data.map(item => item.date);
+                            var calories_burned = data.map(item => item.calories_burned);
+
+                            var ctx = document.getElementById('theChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: dates,
+                                    datasets: [{
+                                        label: 'Calories Burned',
+                                        data: calories_burned,
+                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Date'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Calories Burned'
+                                            },
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        initializeChart(data);
+                    </script>
                 </div>
             </div>
         </section>
         <section class="footer">
-            <!-- Create a section for the footer -->
             <div>
                 <a href="/dashboard" class="nav-link">
-                    <!-- Create a link to the dashboard page -->
                     <img src="/static/Pictures/home-button.png" alt="Dashboard icon" width="100px">
-                    <!-- Display an image representing the dashboard with alternative text -->
                 </a>
                 <p><b>Dashboard</b></p>
-                <!-- Display the "Dashboard" text -->
             </div>
             <div>
                 <a href="/timeline">
-                    <!-- Create a link to the timeline page -->
                     <img src="/static/Pictures/timeline (1).png" alt="Timeline icon" width="100px">
-                    <!-- Display an image representing the timeline with alternative text -->
                 </a>
                 <p><b>Timeline</b></p>
-                <!-- Display the "Timeline" text -->
             </div>
             <div>
                 <a href="/profile">
-                    <!-- Create a link to the user profile page -->
                     <img src="/static/Pictures/user.png" alt="Profile icon" width="100px">
-                    <!-- Display an image representing the user profile with alternative text -->
                 </a>
                 <p><b>Profile</b></p>
-                <!-- Display the "Profile" text -->
             </div>
         </section>
     </main>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <!-- Include an external JavaScript file for additional functionality -->
 </body>
 
 </html>
