@@ -1,29 +1,48 @@
 """
     This module defines the database for the application.
 
-    classses:
+    classes:
         User: Represents a user in the database
         Workout: Represents a workout in the database
-
+        Goal: Represents user goals in the database
+        UserProfile: Represents user profiles in the database
 """
 
-# from app import db, login_manager
-# #import the database from app.py
-
+# Import necessary modules and extensions
 from app import db, login_manager
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-#load_user function
+# Define the user loader function for Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
+    """
+    Load a user given their ID.
+
+    Args:
+        user_id (int): The user's ID.
+
+    Returns:
+        User: The User object corresponding to the provided ID.
+    """
     return User.query.get(int(user_id))
 
-#user class with fullname, email, phone number, password, confirm password
+# Define the User class
 class User(UserMixin, db.Model):
-    __tablename__ = 'user'
+    """
+    Model representing user accounts.
 
+    Attributes:
+        id (int): Unique identifier for the user.
+        fullname (str): Full name of the user.
+        email (str): Email address of the user (used for login).
+        phone (str): User's contact phone number.
+        confirm (str): Confirm password.
+        image_file (str): User's profile image file (default is 'default.jpg').
+        password_hash (str): Securely hashed user password.
+    """
+    __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(100), nullable=False, unique=True)
@@ -34,27 +53,49 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(100), nullable=False)
     Workout = db.relationship('Workout', backref='author', lazy=True)
 
-    # how our objects is printed
     def __repr__(self):
         return f"User('{self.id}', '{self.fullname}', '{self.email}', '{self.phone}', '{self.image_file}')"
     
-    
-    # set_password function
     def set_password(self, password):
         """
-            set the password for the user.
-            Args:
-                password(str): The password to set
+        Set the password for the user.
 
-            Returns:
-                None
+        Args:
+            password (str): The password to set.
+
+        Returns:
+            None
         """
         self.password_hash = generate_password_hash(password, method='sha256')
 
     def check_password(self, password):
+        """
+        Check if the provided password matches the user's hashed password.
+
+        Args:
+            password (str): The password to check.
+
+        Returns:
+            bool: True if the provided password matches the user's password; otherwise, False.
+        """
         return check_password_hash(self.password_hash, password.encode('utf-8'))
-#workout class with exercise, sets, reps, weight, duration, date, calories_burned
+
+# Define the Workout class
 class Workout(db.Model):
+    """
+    Model representing workout data.
+
+    Attributes:
+        id (int): Unique identifier for the workout.
+        exercise (str): Name of the exercise.
+        sets (int): Number of sets performed.
+        reps (int): Number of repetitions per set.
+        weight (int): Weight lifted in kilograms.
+        duration (int): Duration of the workout in minutes.
+        date (str): Date and time of the workout.
+        calories_burned (int): Estimated calories burned during the workout.
+        user_id (int): User ID of the associated user.
+    """
     __tablename__ = 'workouts'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -66,18 +107,43 @@ class Workout(db.Model):
     date = db.Column(db.String(100), nullable=True)
     calories_burned = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
     def __repr__(self):
         return f"workouts('{self.exercise}', '{self.sets}', '{self.reps}', '{self.weight}', '{self.duration}', '{self.date}', '{self.calories_burned}')"
     
+# Define the Goal class
 class Goal(db.Model):
+    """
+    Model representing user goals.
+
+    Attributes:
+        id (int): Unique identifier for the goal.
+        user_id (int): User ID of the associated user.
+        description (str): Description of the user's goal.
+        accomplished (bool): Goal accomplishment status (default is False).
+    """
     __tablename__ = 'goals'
+
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     description = db.Column(db.String(200), nullable=False)
-    accomplished = db.Column(db.Boolean, default=False)  # Add a column to track goal status
+    accomplished = db.Column(db.Boolean, default=False)
 
+# Define the UserProfile class
 class UserProfile(db.Model):
+    """
+    Model representing user profiles.
+
+    Attributes:
+        id (int): Unique identifier for the user profile.
+        user_id (int): User ID of the associated user.
+        gender (str): User's gender.
+        height (int): User's height in centimeters.
+        age (int): User's age.
+        weight (int): User's weight in kilograms.
+    """
     __tablename__ = 'user_profile'
+
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     gender = db.Column(db.String(100), nullable=False)
