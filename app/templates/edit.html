@@ -14,52 +14,59 @@
         }
 
         h1 {
+            /* Style for the heading */
             text-align: center;
         }
 
         /* Form container */
         form {
+            /* Style for the form container */
             max-width: 400px;
             width: 90%;
-            background-color: #fff;
+            background-color: #fff; /* Background color for the form */
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px; /* Rounded corners for the form container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
         }
 
         label {
-            display: block;
-            margin: 10px 0;
+            /* Style for labels */
+            display: block; /* Display labels as block elements (one below the other) */
+            margin: 10px 0; /* Add margin around labels */
         }
 
         input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            /* Style for text input fields */
+            width: 100%; /* Take up the full width of the container */
+            padding: 10px; /* Add padding inside the input fields */
+            border: 1px solid #ccc; /* Add a border */
+            border-radius: 5px; /* Rounded corners for input fields */
+            margin-bottom: 10px; /* Add margin at the bottom of input fields */
         }
 
         button[type="submit"] {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            /* Style for submit buttons */
+            background-color: #007BFF; /* Background color for the button */
+            color: #fff; /* Text color for the button */
+            padding: 10px 20px; /* Add padding to the button */
+            border: none; /* Remove the button border */
+            border-radius: 5px; /* Rounded corners for the button */
+            cursor: pointer; /* Change cursor to a hand pointer on hover */
         }
 
         /* Responsive design for tablet and desktop */
         @media (min-width: 768px) {
+            /* Media query for screens with a minimum width of 768px (tablets and desktops) */
             form {
-                padding: 40px;
+                padding: 40px; /* Adjust padding for larger screens */
             }
         }
 
         /* Responsive design for mobile */
         @media (max-width: 767px) {
+            /* Media query for screens with a maximum width of 767px (mobile devices) */
             form {
-                padding: 20px;
+                padding: 20px; /* Adjust padding for smaller screens */
             }
         }
     </style>

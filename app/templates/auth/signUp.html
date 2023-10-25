@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="/static/signUp.css">
-
 </head>
 
 <body>
@@ -17,49 +16,71 @@
 
                 <form method="POST", action="/submit">
                     <h1>Welcome to FitPyche</h1>
+                    <!-- Main heading welcoming users to FitPyche -->
                     <h2>Let's Do This</h2>
-                
+                    <!-- Subheading encouraging users to sign up -->
+
+                    <!-- Full Name input field -->
                     <div class="user">
                         <label for="fullname"><b>Full Name:</b></label>
+                        <!-- Label for the Full Name input -->
                         <input type="text" id="fullname" name="fullname" placeholder="John Doe" onkeyup="validateName()" required>
+                        <!-- Text input for Full Name with placeholder and required attribute -->
                         <span id="name-error"></span>
+                        <!-- Span to display Full Name validation errors -->
                     </div>
                 
+                    <!-- Email input field -->
                     <div class="mail">
                         <label for="email"><b>Email:</b></label>
+                        <!-- Label for the Email input -->
                         <input type="email" id="email" name="email" placeholder="user19@gmail.com" onkeyup="validateEmail()" required>
+                        <!-- Email input with placeholder and required attribute -->
                         <span id="email-error"></span>
+                        <!-- Span to display Email validation errors -->
                     </div>
                 
+                    <!-- Phone Number input field -->
                     <div>
                         <label for="phone"><b>Phone Number:</b></label>
+                        <!-- Label for the Phone Number input -->
                         <input type="tel" id="phone" name="phone" placeholder="123-456-7890" onkeyup="validatePhone()" required>
+                        <!-- Phone input with placeholder and required attribute -->
                         <span id="phone-error"></span>
+                        <!-- Span to display Phone Number validation errors -->
                     </div>
                 
+                    <!-- Password input field -->
                     <div class="pass">
                         <label for="password"><b>Password:</b></label>
+                        <!-- Label for the Password input -->
                         <input type="password" id="password" name="password" placeholder="Password" onkeyup="validatePassword()" required>
+                        <!-- Password input with placeholder and required attribute -->
                         <span id="password-error"></span>
+                        <!-- Span to display Password validation errors -->
                     </div>
                 
+                    <!-- Confirm Password input field -->
                     <div class="confirm">
                         <label for="confirm_password"><b>Confirm Password:</b></label>
+                        <!-- Label for the Confirm Password input -->
                         <input type="password" id="confirm_password" name="confirm_password" placeholder="Password" onkeyup="validateConfirm()" required>
+                        <!-- Confirm Password input with placeholder and required attribute -->
                         <span id="confirm-error"></span>
+                        <!-- Span to display Confirm Password validation errors -->
                     </div>
 
+                    <!-- Sign Up button -->
                     <input type="submit" value="Sign Up">
                 
-                    <!-- <button type="submit" onclick="return validateForm()"><b>Sign Up</b></button> -->
+                    <!-- Form submission error message -->
                     <span id="signup-error"></span>
                 </form>                
             </div>
-            <!-- Add the "Already have an account? Login" link -->
+
+            <!-- "Already have an account? Login" link -->
             <p>Already have an account? <a href="/auth/login">Login</a></p>
-
         </div>
-
     </main>
     <script src="/static/js/signUp.js"></script>
 </body>

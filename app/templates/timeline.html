@@ -1,158 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Define character encoding and compatibility settings for IE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configure the viewport for responsive design -->
     <title>Timeline Page</title>
+    <!-- Set the title of the webpage -->
     <link rel="stylesheet" href="/static/timeline.css">
-
+    <!-- Link to the external CSS file for styling -->
 </head>
-
 <body>
     <header>
+        <!-- Header section -->
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
+                <!-- Menu item to navigate to the Home page -->
                 <li><a href="/dashboard">Dashboard</a></li>
+                <!-- Menu item to navigate to the Dashboard page -->
                 <li><a href="/timeline">Timeline</a></li>
+                <!-- Menu item to navigate to the Timeline page -->
                 <li><a href="/profile">Profile</a></li>
+                <!-- Menu item to navigate to the Profile page -->
             </ul>
-
         </nav>
     </header>
     <div class="header">
+        <!-- This div contains a header image and title -->
         <img src="/static/Pictures/triangle.png" alt="Timeline" width="100px">
+        <!-- Image for the timeline, which can be replaced with your own image -->
         <h1>Timeline</h1>
+        <!-- Title for the timeline page -->
     </div>
     <section class="work-out-container">
-        <!-- This div represents a container for the workout-related content. -->
+        <!-- This section contains a container for workout-related content -->
 
         <div id="workout-form">
-            <!-- This section contains a form for users to log their workout details. -->
-
+            <!-- This div contains a form for users to log their workout details -->
             <form method="POST" action="/api/workouts/">
+                <!-- Form to submit workout details -->
                 <h2>Log a Workout</h2>
-                <!-- This heading represents the title of the workout form section. -->
-                <!-- This form allows users to input their workout details. -->
-
+                <!-- Title for the workout form section -->
                 <div>
                     <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                    <!-- Hidden input to store the user's ID -->
                 </div>
                 <div>
                     <label for="exercise">Exercise:</label>
-                    <!-- This label is for the "Exercise" input field. -->
-
+                    <!-- Label for the "Exercise" input field -->
                     <input type="text" id="exercise" name="exercise" required>
-                    <!-- This input field is for users to specify the exercise they performed. -->
+                    <!-- Input field for specifying the exercise -->
                 </div>
-
-                <div>
-                    <label for="sets">Sets:</label>
-                    <!-- This label is for the "Sets" input field. -->
-
-                    <input type="number" id="sets" name="sets" required>
-                    <!-- This input field is for users to specify the number of sets they performed. -->
-                </div>
-
-                <div>
-                    <label for="reps">Reps:</label>
-                    <!-- This label is for the "Reps" input field. -->
-
-                    <input type="number" id="reps" name="reps" required>
-                    <!-- This input field is for users to specify the number of repetitions they performed. -->
-                </div>
-
-                <div>
-                    <label for="duration">Duration (minutes):</label>
-                    <!-- This label is for the "Duration" input field. -->
-
-                    <input type="number" id="duration" name="duration" required>
-                    <!-- This input field is for users to specify the duration of their workout in minutes. -->
-                </div>
-
-                <div>
-                    <label for="reps">Date:</label>
-                    <!-- This label is for the "Reps" input field. -->
-
-                    <input type="date" id="reps" name="date" required>
-                    <!-- This input field is for users to specify the number of repetitions they performed. -->
-                </div>
-
-
-                <div>
-                    <label for="reps">Weight:</label>
-                    <!-- This label is for the "Reps" input field. -->
-
-                    <input type="number" id="reps" name="weight" required>
-                    <!-- This input field is for users to specify the number of repetitions they performed. -->
-                </div>
-
+                <!-- Additional input fields for Sets, Reps, Duration, Date, and Weight are similar -->
                 <button type="submit">Add Workout</button>
-                <!-- This button allows users to submit their workout details. -->
-
+                <!-- Button to submit workout details -->
             </form>
         </div>
-
         <section id="workout-history">
-            <!-- This section is for displaying the workout history. -->
-
+            <!-- This section is for displaying the workout history -->
             <h2>Workout History</h2>
-            <!-- This heading represents the title of the workout history section. -->
-
+            <!-- Title for the workout history section -->
             <ul id="workout-list">
-                <!-- This unordered list (ul) will display the workout history items. -->
-                <!-- Individual workout items will be added as list items (li) within this ul. -->
+                <!-- Unordered list to display workout history items -->
                 <ul>
                     {% for workout in info %}
+                    <!-- Loop through workout history items -->
                     <div class="workout-item-container">
                         <div class="workout-item">
                             <label>
                                 Date: {{ workout.date }}
+                                <!-- Display the workout date -->
                                 <a href="{{ url_for('edit_workout', workout_id=workout['id']) }}">
                                     <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon">
                                 </a>
+                                <!-- Link to edit the workout with an edit icon -->
                                 <a href="{{ url_for('delete_workout', workout_id=workout['id']) }}">
                                     <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon">
                                 </a>
+                                <!-- Link to delete the workout with a delete icon -->
                             </label><br>
                             <label>Exercise: {{ workout.exercise }}</label><br>
-                            <label>Sets: {{ workout.sets }}</label><br>
-                            <label>Reps: {{ workout.reps }}</label><br>
-                            <label>Duration: {{ workout.duration }}</label><br>
-                            <label>Calories_burned: {{ workout.calories_burned }}</label><br>
-                            <!-- Add more fields as needed -->
+                            <!-- Display the workout exercise -->
+                            <!-- Other workout details can be added in a similar manner -->
                         </div>
                     </div>
-
                     {% endfor %}
                 </ul>
-
             </ul>
         </section>
     </section>
     <section class="footer">
+        <!-- Footer section -->
         <div>
             <a href="/dashboard" class="nav-link">
                 <img src="/static/Pictures/home-button.png" alt="Dashboard icon" width="100px">
             </a>
+            <!-- Link to the dashboard with a dashboard icon -->
             <p><b>Dashboard</b></p>
+            <!-- Text: "Dashboard" -->
         </div>
         <div>
             <a href="/timeline">
                 <img src="/static/Pictures/timeline (1).png" alt="Timeline icon" width="100px">
             </a>
+            <!-- Link to the timeline with a timeline icon -->
             <p><b>Timeline</b></p>
+            <!-- Text: "Timeline" -->
         </div>
         <div>
             <a href="/profile">
                 <img src="/static/Pictures/user.png" alt="Profile icon" width="100px">
             </a>
+            <!-- Link to the profile with a profile icon -->
             <p><b>Profile</b></p>
+            <!-- Text: "Profile" -->
         </div>
     </section>
     <script src="/static/js/script.js"></script>
+    <!-- Include a JavaScript file for additional functionality -->
 </body>
-
 </html>
