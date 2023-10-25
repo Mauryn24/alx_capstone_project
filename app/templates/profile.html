@@ -74,16 +74,18 @@
             <h3>user profile</h3>
             <h4 id="username" class="label">Username: {{ current_user.fullname }}</h4>
             <h4 id="user-email" class="label"> Email: {{ current_user.email }}</h4>
-            {% for p in profile%}
-            <h4>Gender: {{ p.gender }}</h4>
-            <h4>Weight: {{ p.weight }} kgs</h4>
-            <h4>Age: {{ p.age }} years old</h4>
-            <h4>Height: {{ p.height }} ft</h4>
+            {% if profile %}
+            <h4>Gender: {{ profile.gender }}</h4>
+            <h4>Weight: {{ profile.weight }} kgs</h4>
+            <h4>Age: {{ profile.age }} years old</h4>
+            <h4>Height: {{ profile.height }} ft</h4>
 
             <!-- Edit and Delete links -->
-            <a href="{{ url_for('edit_profile', profile_id=p.id) }}">Edit</a>
-            <a href="{{ url_for('delete_profile', profile_id=p.id) }}">Delete</a>
-            {% endfor %}
+            <a href="{{ url_for('edit_profile', profile_id=profile.id) }}">Edit</a>
+            <a href="{{ url_for('delete_profile', profile_id=profile.id) }}">Delete</a>
+            {% else %}
+                <p>No profile found</p>
+            {% endif %}
         </section>
 
         <section class="change-password">
