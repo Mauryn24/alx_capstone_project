@@ -1,52 +1,91 @@
+/* Reset default margin, padding, font size, and set background color for the body */
 body {
     margin: 0;
     padding: 0;
-    font-size: 16px;
-    background-color: #FFD700;
+    font-size: 16px; /* Set the base font size for the body */
+    background-image: url("/static/Pictures/gym_floor.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
+/* Styling for the header section */
 .header {
-    /* border: 2px solid red; */
+    /* Border styles (2px solid red) are commented out */
     display: flex;
-}
-header, h1 {
-    color: #4CAF50;
+    justify-content: center;
 }
 
+/* Apply green color to the header and h1 elements */
+header, h1 {
+    color: #7DF9FF; /* Green color in HEX format */
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    display: inline; /* Display links horizontally */
+    margin-right: 20px; /* Add spacing between links */
+  }
+  
+  nav a {
+    text-decoration: none; /* Remove default underline */
+    color: orange; /* Text color */
+    font-weight: bold; /* Text weight */
+    transition: color 0.3s; /* Add a smooth color transition on hover */
+  
+    /* Additional styling for hover effect */
+    &:hover {
+      color: #007bff; /* Change text color on hover */
+    }
+  }
+  
+
+/* Styling for the work-out container */
 .work-out-container {
-    /* border: 2px solid purple; */
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
     margin-top: 10px;
-}
-
-.work-out-container {
-    background-color: #4CAF50;
     text-align: center;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
+.workout-item-container {
+    border: 1px solid #ccc; /* Add a border to each workout item container */
+    /* Add padding for spacing inside the containers */
+    padding: 10px 20px; 
+    margin: 10px; /* Add margin to separate workout items */
+    background-color: whitesmoke;
+  }
+/* Styling for individual workout items */
 .workout-item {
     box-sizing: border-box;
-    width: calc(50% - 20px); /* Display two items side by side; adjust width as needed */
 }
 
-#workout-form h2{
+/* Styling for h2 elements within the workout form */
+#workout-form h2 {
     text-align: center;
 }
 
+/* Styling for the workout form */
 form {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    background-color: beige;
+    background-color: beige; /* Set a background color for the form */
 }
+
+/* Styling for input elements within the form */
 input[type="text"],
 input[type="number"],
+input[type="date"],
 input[type="submit"] {
     width: 100%;
     padding: 12px 20px;
@@ -55,43 +94,48 @@ input[type="submit"] {
     border-radius: 2px;
 }
 
+/* Styling for the form submit button */
 form button {
     text-align: center;
     color: white;
-    background-color: black;
+    background-color: black; /* Set the button background color to black */
     border-radius: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+/* Styling for the work-out history section */
 .work-out-history {
     display: flex;
     flex-direction: row;
 }
+
+/* Styling for the footer section */
 .footer {
-    /* border: 2px solid black; */
+    /* Border styles (2px solid black) are commented out */
     display: flex;
     justify-content: space-around;
     padding: 10px;
 }
 
+/* Styling for the text within the footer section */
 .footer p {
     text-align: center;
-    color: #4CAF50;
+    color: #4CAF50; /* Set the text color in HEX format */
 }
 
-/* Tablet styles */
+/* Tablet styles - applies when the screen width is at least 768px */
 @media screen and (min-width: 768px) {
-    /* Add specific styles for tablets here */
+    /* Specific styles for tablets */
     body {
-        font-size: 18px;
+        font-size: 18px; /* Adjust the font size for tablets */
     }
 }
 
-/* Desktop styles */
+/* Desktop styles - applies when the screen width is at least 1200px */
 @media screen and (min-width: 1200px) {
-    /* Add specific styles for desktops here */
+    /* Specific styles for desktops */
     body {
-        font-size: 20px;
+        font-size: 20px; /* Adjust the font size for desktops */
     }
 }

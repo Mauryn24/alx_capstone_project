@@ -1,54 +1,246 @@
+/* Apply general styles to the body and headings */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 16px;
-    /* background-color: #FFD700; */
-    background-image: url("/static/Pictures/fitness.jpg");
+    background-image: url("/static/Pictures/gym_floor.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Style the header and navigation */
 header {
-    display: flex;
-    flex-direction: row;
+    color: orange;
+    padding: 10px;
 }
 
-header, h2 {
-    color: #4CAF50;
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
 
+nav a {
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+    transition: color 0.3s;
+}
 
-.activity {
-    /* border: 2px solid black; */
+nav a:hover {
+    color: #007bff;
+}
+
+/* Create a container for the main content and add padding */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.activity,
+.about,
+.user,
+.change-password {
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
-} 
+    margin-bottom: 20px;
+}
 
 .activity h3 {
     text-align: center;
-    margin-bottom: 10px;
-    /* border: 2px solid black; */
+    color: orange;
 }
 
-.activity .goals li {
+.activity form {
+    display: inline-block;
+    /* Display the form as an inline-block element */
+    text-align: left;
+    /* Reset text alignment within the form */
+    margin: 0 auto;
+    /* Center horizontally using margin */
+}
+
+/* Style the "Activity Goals" section */
+.activity label,
+.activity input[type="text"],
+.activity button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.activity button[type="submit"] {
+    background-color: black;
+    color: orange;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.activity ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
     display: flex;
     flex-direction: column;
+    /* Reset text alignment within the list */
+}
+
+.activity li {
+    text-align: left;
+    /* Reset text alignment within list items */
+    display: inline-block;
+    /* Display list items as inline-block elements */
+    margin: 0 10px;
+    /* Add margin between list items for spacing */
+}
+
+.about {
     text-align: center;
+    /* Center the text horizontally */
+}
+
+.about h3 {
+    color: orange;
+}
+.about form {
+    display: inline-block;
+    /* Display the forms as inline-block elements */
+    text-align: left;
+    /* Reset text alignment within the forms */
+    margin: 0 auto;
+    /* Center horizontally using margin */
+}
+
+/* Style the "About You" section */
+.about label,
+.about input[type="text"],
+.about button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.about button[type="submit"] {
+    background-color: black;
+    color: orange;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Style the "User Profile" section */
+.user {
+    text-align: center;
+}
+
+.user h3 {
+    color: orange;
+}
+
+.user a {
+    display: inline-block;
+    color: orange;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+/* Style the "Change Password" section */
+
+.change-password {
+    text-align: center;
+    /* Center the text horizontally */
+}
+
+.change-password h3 {
+    color: orange;
+}
+.change-password form {
+    display: inline-block;
+    /* Display the form as an inline-block element */
+    text-align: left;
+    /* Reset text alignment within the form */
+    margin: 0 auto;
+    /* Center horizontally using margin */
     
 }
 
 
-.Progress {
-    /* border: 2px solid black; */
+.change-password label,
+.change-password input[type="password"],
+.change-password button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.change-password button[type="submit"] {
+    background-color: black;
+    color: orange;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Style the footer */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: orange;
+}
+
+.footer img {
+    display: block;
+    margin: 0 auto;
+}
+
+.footer p {
     text-align: center;
 }
 
-.footer {
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-around;
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+
+    /* Styles for screens up to 768px (tablet and mobile) */
+    main {
+        padding: 10px;
+    }
+
+    .activity ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Center list items horizontally within the container */
+    }
+
+    .activity li {
+        flex: 1;
+        /* Distribute list items evenly in a row */
+        margin: 10px;
+        /* Add margin around list items */
+    }
+
+    /* Adjust other styles as needed for smaller screens */
 }
+
+/* Additional media queries for larger screens can be added as needed */

@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager
 from flask_bcrypt import Bcrypt
 import secrets
+from flask_migrate import Migrate
+
 # Create a Flask application instance
 app = Flask(__name__)
 
@@ -12,6 +14,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the database
 db = SQLAlchemy(app)
+
+# Initialize Flask-Migrate
+migrate = Migrate(app, db)
 
 # initialize the database
 @app.cli.command()

@@ -7,13 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fit Psyche Dashboard</title>
     <link rel="stylesheet" href="/static/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <header>
-        <!-- <img src="/Pictures/class.png" alt="Logo" width="100px">
-        <h1>Fit Psyche </h1> -->
-        <nav>
+        <nav class="navigation">
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/dashboard">Dashboard</a></li>
@@ -23,22 +22,23 @@
 
         </nav>
 
-        <nav>
+        <nav class="logout">
             <!-- if user  is logged in then the route that should be displayed is the logut route  -->
             {% if current_user. is_authenticated %}
-            <a href="/account">Account</a>
             <a href="/logout">logout</a>
             {% else %}
             <a href="/auth/login">Login</a>
             <a href="/auth/signUp"> SignUp</a>
             {% endif %}
         </nav>
-    </header>
-    <header>
-        <img src="/static/Pictures/class.png" alt="Logo" width="100px">
-        <h1>Fit Psyche </h1>
+
+        
     </header>
     <main>
+        <section class="header">
+            <img src="/static/Pictures/class.png" alt="Logo" width="100px">
+            <h1>Fit Psyche </h1>
+        </section>
         <section class="calories-progress">
             <div class="calories">
                 <img src="/static/Pictures/calories.png" alt="Total calories burned" width="100px">
@@ -49,18 +49,18 @@
         <section class="summary">
             <div class=" sum">
                 <div class="dumbel">
-                    <img src="/static/Pictures/workout.png" alt="workout icon" width="100px">
+                    <img src="/static/Pictures/kettlebell.png" alt="workout icon" width="100px">
                 </div>
                 <div class="total-workout">
-                    <img src="/static/Pictures/thunder.png" alt="total workouts" width="50px">
+                    <img src="/static/Pictures/light.png" alt="total workouts" width="50px">
                     <p><span id="calories-value"><b>{{ total_workouts }}</b></span> <b>Workouts</b></p>
                 </div>
                 <div class="calories-burned">
-                    <img src="/static/Pictures/calories (1).png" alt="total heart rate" width="50px">
+                    <img src="/static/Pictures/cal.png" alt="total heart rate" width="50px">
                     <p><span id="calories-value"><b>{{ total_calories }}</b></span> <b>Calories</b></p>
                 </div>
                 <div class="total-time">
-                    <img src="/static/Pictures/sand-clock.png" alt="total time taken" width="50px">
+                    <img src="/static/Pictures/hourglass.png" alt="total time taken" width="50px">
                     <p><span id="calories-value"><b>{{ total_time }}</b></span> <b>Minutes</b></p>
                 </div>
             </div>
@@ -70,24 +70,115 @@
             <div class="graph">
                 <div class="workout-graph">
                     <h3>workout-graph</h3>
-                    <p>we will add a workout graph here</p>
+                    <canvas id="myChart" width="400" height="200"></canvas>
+
+                    <script>
+                        // Access the data passed to the template
+                        var data = {{ data| tojson | safe }};
+
+                        // Function to initialize the chart
+                        function initializeChart(data) {
+                            var dates = data.map(item => item.date);
+                            var workoutSets = data.map(item => item.sets);
+
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: dates,
+                                    datasets: [{
+                                        label: 'Workout Sets',
+                                        data: workoutSets,
+                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Date'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Workout Sets'
+                                            },
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        initializeChart(data);
+                    </script>
                 </div>
+
                 <div class="calories-graph">
                     <h3>calories-graph</h3>
-                    <p>we will add a calories graph here</p>
+                    <canvas id="theChart" width="400" height="200"></canvas>
+
+                    <script>
+                        // Access the data passed to the template
+                        var data = {{ datas| tojson | safe }};
+
+                        // Function to initialize the chart
+                        function initializeChart(data) {
+                            var dates = data.map(item => item.date);
+                            var calories_burned = data.map(item => item.calories_burned);
+
+                            var ctx = document.getElementById('theChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: dates,
+                                    datasets: [{
+                                        label: 'Calories Burned',
+                                        data: calories_burned,
+                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Date'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Calories Burned'
+                                            },
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        initializeChart(data);
+                    </script>
                 </div>
             </div>
         </section>
         <section class="footer">
             <div>
                 <a href="/dashboard" class="nav-link">
-                    <img src="/static/Pictures/dashboard.png" alt="Dashboard icon" width="100px">
+                    <img src="/static/Pictures/home-button.png" alt="Dashboard icon" width="100px">
                 </a>
                 <p><b>Dashboard</b></p>
             </div>
             <div>
                 <a href="/timeline">
-                    <img src="/static/Pictures/timeline.png" alt="Timeline icon" width="100px">
+                    <img src="/static/Pictures/timeline (1).png" alt="Timeline icon" width="100px">
                 </a>
                 <p><b>Timeline</b></p>
             </div>
@@ -99,6 +190,7 @@
             </div>
         </section>
     </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 </html>

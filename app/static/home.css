@@ -1,8 +1,10 @@
+/* Reset default margin and padding for the body */
 .body {
     margin: 0;
     padding: 0;
 }
 
+/* Styling for the header section */
 header {
     display: flex;
     flex-direction: row;
@@ -27,12 +29,12 @@ li {
 }
 
 li a {
-    color: orange;
+    color: orange; /* Set link color to orange */
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
 }
 
-
+/* Styling for the container */
 .container {
     display: flex;
     flex-direction: column;
@@ -40,64 +42,70 @@ li a {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: -70px;
+    margin-top: -70px; /* Adjust the top margin */
 }
 
+/* Styles for the body section inside the container */
 .container .body {
     display: flex;
     flex-direction: column;
     text-align: center;
     margin: 100px;
     padding: 80px;
-    ;
 }
 
+/* Styling for specific text spans in the body */
 .container .body p span {
-    color: white;
+    color: white; /* Set text color to white */
     text-transform: uppercase;
     font-weight: bold;
     font-size: large;
-    color: orange;
-    font-family: 'Roboto', sans-serif;
+    color: orange; /* Set specific text to orange */
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
 }
 
+/* Styling for the .sub class inside the body section */
 .container .body p .sub {
-    color: red;
+    color: red; /* Set text color to red */
     font-weight: bolder;
     font-size: larger;
-    font-family: 'dancing script', cursive;
+    font-family: 'dancing script', cursive; /* Apply the dancing script font */
 }
 
+/* Styling for the photo section */
 .photo {
     display: flex;
     flex-direction: column;
     text-align: center;
     margin: 100px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
     font-weight: bolder;
     font-size: larger;
-    color: orange;
+    color: orange; /* Set text color to orange */
     margin-top: 100px;
     padding: 80px;
-
 }
 
 .photo p {
     font-size: larger;
 }
 
+/* Styling for buttons */
 button {
-    border-radius: 50%;
-    color: aqua;
+    border-radius: 50%; /* Make buttons circular */
+    color: aqua; /* Set button text color to aqua */
 }
 
+/* Media query for screens with a maximum width of 600px */
 @media screen and (max-width: 600px) {
-
-    /* body {
+    /* Uncomment and add specific styles for smaller screens if needed */
+    /*
+    body {
         margin: 0;
         padding: 0;
         font-size: 16px;
-    } */
+    }
+    */
     .container .body {
         display: flex;
         text-align: center;

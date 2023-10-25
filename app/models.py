@@ -49,10 +49,10 @@ class User(UserMixin, db.Model):
             Returns:
                 None
         """
-        self.password_hash = generate_password_hash(password)
+        self.password_hash = generate_password_hash(password, method='sha256')
 
     def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        return check_password_hash(self.password_hash, password.encode('utf-8'))
 #workout class with exercise, sets, reps, weight, duration, date, calories_burned
 class Workout(db.Model):
     __tablename__ = 'workouts'
@@ -68,3 +68,19 @@ class Workout(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     def __repr__(self):
         return f"workouts('{self.exercise}', '{self.sets}', '{self.reps}', '{self.weight}', '{self.duration}', '{self.date}', '{self.calories_burned}')"
+    
+class Goal(db.Model):
+    __tablename__ = 'goals'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    accomplished = db.Column(db.Boolean, default=False)  # Add a column to track goal status
+
+class UserProfile(db.Model):
+    __tablename__ = 'user_profile'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    gender = db.Column(db.String(100), nullable=False)
+    height = db.Column(db.Integer, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    weight = db.Column(db.Integer, nullable=False)

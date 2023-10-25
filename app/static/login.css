@@ -1,24 +1,27 @@
+/* Reset default margin, padding, and set background color for the body */
 body {
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Light gray background color */
     /* Base styles for mobile devices */
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: Arial, sans-serif;
+    font-size: 16px; /* Set the base font size */
+    line-height: 1.5; /* Set the line height for readability */
+    font-family: Arial, sans-serif; /* Set the font family for text */
 }
 
+/* Styling for the container */
 .container {
-    max-width: 500px;
-    background-color: #3498db;
+    max-width: 500px; /* Set a maximum width for the container */
+    background-color: #3498db; /* Blue background color */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    margin: 0 auto;
-    margin-top: 150px;
+    margin: 0 auto; /* Center the container horizontally */
+    margin-top: 150px; /* Add top margin to the container */
 }
 
+/* Styling for various input types */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -30,14 +33,16 @@ input[type="tel"] {
     border-radius: 5px;
 }
 
+/* Styling for input placeholders */
 ::placeholder {
-    color: black;
+    color: black; /* Set placeholder text color to black */
 }
 
+/* Styling for buttons */
 button {
     width: 100%;
-    background-color: #e91e63;
-    color: white;
+    background-color: #e91e63; /* Pink background color for buttons */
+    color: white; /* Set button text color to white */
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -45,11 +50,11 @@ button {
     cursor: pointer;
 }
 
+/* Styling for error messages (span elements) */
 span {
-    color: red;
-    font-size: 12px;
+    color: red; /* Set error message text color to red */
+    font-size: 12px; /* Set font size for error messages */
     font-weight: bold;
     position: absolute;
     display: inline;
-    
 }

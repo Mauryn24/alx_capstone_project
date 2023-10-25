@@ -1,86 +1,135 @@
 /* Mobile styles (base) */
+/* Reset default margin, padding, and set background color */
 body {
     margin: 0;
     padding: 0;
-    background-color: #FFD700 ;
+    background-image: url("/static/Pictures/gym_floor.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
+/* Styling for the header section */
 header {
     display: flex;
     padding: 10px;
     margin-bottom: 10px;
-}
-header, h1{
-    color: #4CAF50;
+    flex-direction: row;
 }
 
+/* Apply green color to the header and h1 elements */
+header, h1 {
+    color:  orange; /* Green color in HEX format */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    display: inline; /* Display links horizontally */
+    margin-right: 20px; /* Add spacing between links */
+  }
+  
+  nav a {
+    text-decoration: none; /* Remove default underline */
+    color: orange; /* Text color */
+    font-weight: bold; /* Text weight */
+    transition: color 0.3s; /* Add a smooth color transition on hover */
+  
+    /* Additional styling for hover effect */
+    &:hover {
+      color: #007bff; /* Change text color on hover */
+    }
+  }  
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+/* Styling for the calories section */
 section .calories {
-    border: 2px dotted black;
+    border: 2px dotted  black;
     text-align: center;
     padding: 20px;
     margin-bottom: 10px;
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    margin: auto;
+    margin: auto; /* Center horizontally */
     margin-bottom: 10px;
-    background-color: #4CAF50;
+    background-color: #7DF9FF; /* Green background color in HEX format */
 }
 
+/* Style the text inside the calories section */
 section .calories p {
-    color: whitesmoke;
+    color:  orange;
 }
 
+/* Styling for the summary section */
 .summary .sum {
     display: flex;
     justify-content: space-evenly;
     margin: 10px;
 }
 
+/* Styling for total workout, calories burned, and total time */
 .total-workout, .calories-burned, .total-time {
     text-align: center;
-    color: #4CAF50;
+    color:  orangered; /* Green color for text */
 }
 
+/* Styling for the statistics section */
 .statistics h2 {
     text-align: center;
-    color: darkgray;
+    color: black; /* Dark gray color for text */
 }
 
+/* Styling for the graph elements inside the statistics section */
 .statistics .graph {
-    /* Add styles for graphs if necessary */
     display: flex;
     flex-direction: column;
     text-align: center;
-    color: #FF00FF;
+    color:  orange; /* Magenta color for text */
 }
 
-
+/* Styling for the footer section */
 .footer {
     display: flex;
     justify-content: space-evenly;
 }
+
+/* Style the text in the footer section */
 .footer p {
     text-align: center;
-    color: #4CAF50;
+    color:  orange; /* Green color for text */
 }
 
-/* Tablet styles */
+/* Tablet styles - applies when the screen width is at least 768px */
 @media screen and (min-width: 768px) {
-    /* Add specific styles for tablets here */
+    /* Specific styles for tablets */
     body {
-        font-size: 18px;
+        font-size: 18px; /* Adjust the font size for tablets */
     }
+    
 }
 
-/* Desktop styles */
+/* Desktop styles - applies when the screen width is at least 1200px */
 @media screen and (min-width: 1200px) {
-    /* Add specific styles for desktops here */
+    /* Specific styles for desktops */
     body {
-        font-size: 28px;
+        font-size: 28px; /* Adjust the font size for desktops */
     }
     section .calories p {
-        font-size: 20px;
-        text-transform: capitalize;
+        font-size: 20px; /* Adjust font size for calories text */
+        text-transform: capitalize; /* Capitalize the text */
     }
 }

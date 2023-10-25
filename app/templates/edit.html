@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Goal</title>
+    <style>
+        /* Common styles for all screen sizes */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Form container */
+        form {
+            max-width: 400px;
+            width: 90%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive design for tablet and desktop */
+        @media (min-width: 768px) {
+            form {
+                padding: 40px;
+            }
+        }
+
+        /* Responsive design for mobile */
+        @media (max-width: 767px) {
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <form method="POST" action="/update_goal/{{ goal.id }}">
+        <h1>Edit Goal</h1>
+        <label for="description">Goal Description:</label>
+        <input type="text" id="description" name="description" value="{{ goal.description }}" required>
+        <button type="submit">Update Goal</button>
+    </form>
+</body>
+</html>

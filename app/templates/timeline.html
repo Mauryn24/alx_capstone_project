@@ -12,8 +12,6 @@
 
 <body>
     <header>
-        <!-- <img src="/Pictures/class.png" alt="Logo" width="100px"> -->
-        <!-- <h1>Fit Psyche </h1> -->
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
@@ -25,7 +23,7 @@
         </nav>
     </header>
     <div class="header">
-        <img src="/static/Pictures/work-in-progress.png" alt="Timeline" width="100px">
+        <img src="/static/Pictures/triangle.png" alt="Timeline" width="100px">
         <h1>Timeline</h1>
     </div>
     <section class="work-out-container">
@@ -91,7 +89,7 @@
                     <!-- This input field is for users to specify the number of repetitions they performed. -->
                 </div>
 
-                <button type="submit">Log Workout</button>
+                <button type="submit">Add Workout</button>
                 <!-- This button allows users to submit their workout details. -->
 
             </form>
@@ -108,22 +106,24 @@
                 <!-- Individual workout items will be added as list items (li) within this ul. -->
                 <ul>
                     {% for workout in info %}
-                    <div class="workout-item">
-                        <label>
-                            Date: {{ workout.date }}
-                            <a href="{{ url_for('edit_workout', workout_id=workout['id']) }}">
-                                <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon">
-                            </a>
-                            <a href="{{ url_for('delete_workout', workout_id=workout['id']) }}">
-                                <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon">
-                            </a>
-                        </label><br>
-                        <label>Exercise: {{ workout.exercise }}</label><br>
-                        <label>Sets: {{ workout.sets }}</label><br>
-                        <label>Reps: {{ workout.reps }}</label><br>
-                        <label>Duration: {{ workout.duration }}</label><br>
-                        <label>Calories_burned: {{ workout.calories_burned }}</label><br>
-                        <!-- Add more fields as needed -->
+                    <div class="workout-item-container">
+                        <div class="workout-item">
+                            <label>
+                                Date: {{ workout.date }}
+                                <a href="{{ url_for('edit_workout', workout_id=workout['id']) }}">
+                                    <img src="/static/Pictures/edit.png" alt="edit icon" width="30px" class="icon">
+                                </a>
+                                <a href="{{ url_for('delete_workout', workout_id=workout['id']) }}">
+                                    <img src="/static/Pictures/trash.png" alt="delete icon" width="30px" class="icon">
+                                </a>
+                            </label><br>
+                            <label>Exercise: {{ workout.exercise }}</label><br>
+                            <label>Sets: {{ workout.sets }}</label><br>
+                            <label>Reps: {{ workout.reps }}</label><br>
+                            <label>Duration: {{ workout.duration }}</label><br>
+                            <label>Calories_burned: {{ workout.calories_burned }}</label><br>
+                            <!-- Add more fields as needed -->
+                        </div>
                     </div>
 
                     {% endfor %}
@@ -135,13 +135,13 @@
     <section class="footer">
         <div>
             <a href="/dashboard" class="nav-link">
-                <img src="/static/Pictures/dashboard.png" alt="Dashboard icon" width="100px">
+                <img src="/static/Pictures/home-button.png" alt="Dashboard icon" width="100px">
             </a>
             <p><b>Dashboard</b></p>
         </div>
         <div>
             <a href="/timeline">
-                <img src="/static/Pictures/timeline.png" alt="Timeline icon" width="100px">
+                <img src="/static/Pictures/timeline (1).png" alt="Timeline icon" width="100px">
             </a>
             <p><b>Timeline</b></p>
         </div>
