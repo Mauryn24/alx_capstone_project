@@ -11,14 +11,13 @@ body {
 
 /* Styling for the header section */
 .header {
-    /* Border styles (2px solid red) are commented out */
     display: flex;
     justify-content: center;
 }
 
 /* Apply green color to the header and h1 elements */
 header, h1 {
-    color: #7DF9FF; /* Green color in HEX format */
+    color: #7DF9FF; /* blue color in HEX format */
 }
 nav ul {
     list-style: none;
