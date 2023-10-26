@@ -71,11 +71,11 @@
 <a href="https://www.canva.com/design/DAFw3bcxfcM/hme0ALUtCJEwyhDlPd8-0w/edit?utm_content=DAFw3bcxfcM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" alt="Prototype">
 
 - if the three slides lack, the pictures attached below will give more details
-* <img src="Pictures/Home.jpg" alt="Dashboard Page">
+* <img src="static/Pictures/Home.jpg" alt="Dashboard Page">
 
-* <img src="Pictures/Goals.jpg" alt="Activity Page">
+* <img src="app/static/Pictures/Goals.jpg" alt="Activity Page">
 
-* <img src="Pictures/Profil.jpg" alt="Profile Page">
+* <img src="app/static/Pictures/Profil.jpg" alt="Profile Page">
 
 - the video Demo of my application
 <a href="https://drive.google.com/file/d/1u3jgkOVwBU9h1tKbpBSX-B78kSxt3wjN/view?usp=sharing" alt="video Demo">
